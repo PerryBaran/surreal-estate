@@ -21,7 +21,7 @@ Created as part of the Manchester Codes full-stack web development boot-camp.
 ## Dependencies
 
 - [React](https://reactjs.org/)
-- [Typescript](https://www.typescriptlang.org/)
+- [React-Router-Dom](https://reactrouter.com/en/main)
 
 ### Dev Dependencies
 
