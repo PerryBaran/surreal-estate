@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
   height: 70px;
+  background-color: var(--almost-white);
 }
 
 .logo {

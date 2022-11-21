@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import style from "../styles/addProperty.module.css";
+import postProperty from "../requests/postProperty";
 
 const initialState = {
   title: "",
@@ -30,7 +31,7 @@ const AddProperty = () => {
 
   const handleAddProperty = (e) => {
     e.preventDefault();
-    console.log(state);
+    postProperty(state);
   };
 
   const handleFieldChange = (e) => {

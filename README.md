@@ -22,6 +22,7 @@ Created as part of the Manchester Codes full-stack web development boot-camp.
 
 - [React](https://reactjs.org/)
 - [React-Router-Dom](https://reactrouter.com/en/main)
+- [Axios](https://www.npmjs.com/package/axios)
 
 ### Dev Dependencies
 

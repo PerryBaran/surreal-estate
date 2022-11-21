@@ -12,3 +12,7 @@
   --almost-black: black;
   --almost-white: white;
 }
+
+body {
+  background-color: lightgray;
+}
