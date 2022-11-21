@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<DocumentFragment>
+  <div
+    class="app"
+  >
+    <nav
+      class="navbar"
+    >
+      <img
+        alt="logo"
+        class="logo"
+        src="logo.png"
+      />
+      <ul
+        class="links"
+      >
+        <li
+          class="item"
+        >
+          <a
+            href="/"
+          >
+            View Properties
+          </a>
+        </li>
+        <li
+          class="item"
+        >
+          <a
+            href="/add-property"
+          >
+            Add a Property
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div>
+      Properties Page
+    </div>
+  </div>
+</DocumentFragment>
+`;
