@@ -46,7 +46,11 @@ const AddProperty = () => {
 
   return (
     <div className={style["add-property"]}>
-      <form onSubmit={handleAddProperty} className={style.form}>
+      <form
+        onSubmit={handleAddProperty}
+        className={style.form}
+        aria-label="form"
+      >
         <label htmlFor="title" className={style.label}>
           Title:
           <input

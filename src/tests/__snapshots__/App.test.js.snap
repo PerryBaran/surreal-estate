@@ -9,7 +9,7 @@ exports[`renders learn react link 1`] = `
       class="navbar"
     >
       <img
-        alt="logo"
+        alt="Surreal Estate"
         class="logo"
         src="logo.png"
       />

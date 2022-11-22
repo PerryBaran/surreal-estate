@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="navbar"
+  >
+    <img
+      alt="Surreal Estate"
+      class="logo"
+      src="logo.png"
+    />
+    <ul
+      class="links"
+    >
+      <li
+        class="item"
+      >
+        <a
+          href="/"
+        >
+          View Properties
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          href="/add-property"
+        >
+          Add a Property
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

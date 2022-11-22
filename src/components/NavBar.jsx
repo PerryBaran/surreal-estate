@@ -6,7 +6,7 @@ import logo from "../images/logo.png";
 const NavBar = () => {
   return (
     <nav className={style.navbar}>
-      <img src={logo} alt="logo" className={style.logo} />
+      <img src={logo} alt="Surreal Estate" className={style.logo} />
       <ul className={style.links}>
         <li className={style.item}>
           <Link to="/">View Properties</Link>
