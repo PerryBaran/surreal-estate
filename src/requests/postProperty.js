@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const postProperty = async (property, setAlert) => {
+  console.log("post")
   try {
     const response = await axios.post(
       "http://localhost:3000/api/v1/PropertyListing",

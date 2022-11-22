@@ -6,9 +6,9 @@ describe("PropertyCard", () => {
   const validProps = {
     title: "2 bed flat",
     type: "flat",
-    bathrooms: 1,
-    bedrooms: 2,
-    price: 5000,
+    bathrooms: "1",
+    bedrooms: "2",
+    price: "5000",
     city: "Leeds",
     email: "not.real@email.com",
   };
@@ -29,7 +29,7 @@ describe("PropertyCard", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test("renders props correctly", () => {
+  test("renders correctly", () => {
     render(
       <PropertyCard
         title={validProps.title}
@@ -45,6 +45,7 @@ describe("PropertyCard", () => {
     const bedroomsImg = screen.getByAltText("bedrooms");
     const emailImg = screen.getByAltText("email");
 
+    expect(screen.getByAltText("property")).toHaveAttribute("src", "card.png");
     expect(screen.getByText(validProps.title)).toBeInstanceOf(
       HTMLHeadingElement
     );
@@ -58,7 +59,7 @@ describe("PropertyCard", () => {
     expect(bedroomsImg).toHaveAttribute("src", "bed.png");
     expect(screen.getByText(validProps.bedrooms)).toBeInTheDocument();
     expect(screen.getByText(new RegExp(validProps.price))).toHaveTextContent(
-      `£ ${validProps.price.toFixed(2)}`
+      `£ ${Number(validProps.price).toFixed(2)}`
     );
     expect(screen.getByText(/email/i).closest("a")).toHaveAttribute(
       "href",

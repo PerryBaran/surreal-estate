@@ -5,6 +5,11 @@ exports[`PropertyCard snapshot 1`] = `
   <div
     class="property-card"
   >
+    <img
+      alt="property"
+      class="property-card-image"
+      src="card.png"
+    />
     <h2
       class="property-card-title"
     >
@@ -23,6 +28,7 @@ exports[`PropertyCard snapshot 1`] = `
       >
         <img
           alt="bathrooms"
+          class="property-card-icon"
           src="bath.png"
         />
         <p>
@@ -34,6 +40,7 @@ exports[`PropertyCard snapshot 1`] = `
       >
         <img
           alt="bedrooms"
+          class="property-card-icon"
           src="bed.png"
         />
         <p>
@@ -52,6 +59,7 @@ exports[`PropertyCard snapshot 1`] = `
     >
       <img
         alt="email"
+        class="property-card-icon"
         src="email.png"
       />
       <p>

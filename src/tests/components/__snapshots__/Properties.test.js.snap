@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Properties snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="properties"
+  >
+    <div
+      class="properties-array"
+    />
+  </div>
+</DocumentFragment>
+`;

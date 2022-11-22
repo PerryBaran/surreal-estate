@@ -38,7 +38,11 @@ exports[`renders learn react link 1`] = `
     </nav>
     <div
       class="properties"
-    />
+    >
+      <div
+        class="properties-array"
+      />
+    </div>
   </div>
 </DocumentFragment>
 `;

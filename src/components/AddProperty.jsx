@@ -24,8 +24,21 @@ const AddProperty = () => {
 
   const handleAddProperty = (e) => {
     e.preventDefault();
-    setAlert(initialState.alert);
-    postProperty(formFields, setAlert);
+    if (!formFields.title || !formFields.price || !formFields.email) {
+      setAlert({
+        message: "Please fill in all fields.",
+        isSuccessful: false,
+      });
+    } else if (
+      !formFields.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+    ) {
+      setAlert({
+        message: "Please provide a valid email.",
+        isSuccessful: false,
+      });
+    } else {
+      postProperty(formFields, setAlert);
+    }
   };
 
   const handleFieldChange = (e) => {

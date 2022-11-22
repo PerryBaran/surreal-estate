@@ -1,7 +1,7 @@
 .property-card {
   background-color: white;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   text-align: center;
   padding: 10px;
   display: flex;
@@ -9,11 +9,15 @@
   gap: 10px;
 }
 
+.property-card-image {
+  width: 100%;
+}
+
 .property-card-price {
   font-size: 1.4rem;
 }
 
-.property-card img {
+.property-card-icon {
   aspect-ratio: 1;
   width: 30px;
 }
