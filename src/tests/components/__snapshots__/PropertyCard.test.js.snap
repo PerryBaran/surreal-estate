@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyCard snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="property-card"
+  >
+    <h2
+      class="property-card-title"
+    >
+      2 bed flat
+    </h2>
+    <p
+      class="property-card-info"
+    >
+      flat - Leeds
+    </p>
+    <div
+      class="property-card-rooms"
+    >
+      <div
+        class="property-card-room"
+      >
+        <img
+          alt="bathrooms"
+          src="bath.png"
+        />
+        <p>
+          1
+        </p>
+      </div>
+      <div
+        class="property-card-room"
+      >
+        <img
+          alt="bedrooms"
+          src="bed.png"
+        />
+        <p>
+          2
+        </p>
+      </div>
+    </div>
+    <p
+      class="property-card-price"
+    >
+      £ 5000.00
+    </p>
+    <a
+      class="property-card-email"
+      href="mailto:not.real@email.com"
+    >
+      <img
+        alt="email"
+        src="email.png"
+      />
+      <p>
+        Email
+      </p>
+    </a>
+  </div>
+</DocumentFragment>
+`;

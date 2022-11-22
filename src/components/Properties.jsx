@@ -2,7 +2,7 @@ import React from "react";
 import style from "../styles/properties.module.css";
 
 const Properties = () => {
-  return <div>Properties Page</div>;
+  return <div className={style.properties} />;
 };
 
 export default Properties;

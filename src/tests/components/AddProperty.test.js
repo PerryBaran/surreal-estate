@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import AddProperty from "../components/AddProperty";
+import AddProperty from "../../components/AddProperty";
 
 describe("AddProperty", () => {
   test("snapshot", () => {

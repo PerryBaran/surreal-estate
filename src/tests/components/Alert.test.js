@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Alert from "../components/Alert";
+import Alert from "../../components/Alert";
 
 describe("Alert", () => {
   describe("error", () => {

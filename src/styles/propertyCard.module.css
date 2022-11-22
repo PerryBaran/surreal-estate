@@ -1,0 +1,59 @@
+.property-card {
+  background-color: white;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.property-card-price {
+  font-size: 1.4rem;
+}
+
+.property-card img {
+  aspect-ratio: 1;
+  width: 30px;
+}
+
+.property-card-title {
+  text-align: center;
+}
+
+.property-card-rooms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px
+}
+
+.property-card-room {
+  display: flex;
+  align-items: center;
+}
+
+.property-card-room > p {
+  font-size: 1.2rem;
+  margin: 0 5px;
+  font-weight: 500;
+}
+
+.property-card-email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: rgb(162, 10, 162);
+  text-decoration: none;
+}
+
+.property-card-email > p {
+  color: white;
+  font-weight: 500;
+}
+
+.property-card-email > img {
+  filter: invert();
+}
