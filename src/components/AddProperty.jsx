@@ -1,46 +1,39 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import style from "../styles/addProperty.module.css";
 import postProperty from "../requests/postProperty";
-
-const initialState = {
-  title: "",
-  type: "Flat",
-  bedrooms: 1,
-  bathrooms: 1,
-  price: 0,
-  city: "Manchester",
-  email: "",
-};
-
-const reducer = (state, { type, key, value }) => {
-  switch (type) {
-    case "update":
-      return {
-        ...state,
-        [key]: value,
-      };
-    default:
-      return {
-        state,
-      };
-  }
-};
+import Alert from "./Alert";
 
 const AddProperty = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const initialState = {
+    form: {
+      title: "",
+      type: "Flat",
+      bedrooms: 1,
+      bathrooms: 1,
+      price: 0,
+      city: "Manchester",
+      email: "",
+    },
+    alert: {
+      message: "",
+      isSuccessful: true,
+    },
+  };
+  const [formFields, setFormFields] = useState(initialState.form);
+  const [alert, setAlert] = useState(initialState.alert);
 
   const handleAddProperty = (e) => {
     e.preventDefault();
-    postProperty(state);
+    setAlert(initialState.alert);
+    postProperty(formFields, setAlert);
   };
 
   const handleFieldChange = (e) => {
     e.preventDefault();
     const { value, name } = e.target;
-    dispatch({
-      type: "update",
-      key: name,
-      value,
+    setFormFields({
+      ...formFields,
+      [name]: value,
     });
   };
 
@@ -51,12 +44,13 @@ const AddProperty = () => {
         className={style.form}
         aria-label="form"
       >
+        <Alert message={alert.message} success={alert.isSuccessful} />
         <label htmlFor="title" className={style.label}>
           Title:
           <input
             id="title"
             name="title"
-            value={state.title}
+            value={formFields.title}
             onChange={handleFieldChange}
             placeholder="2 bed flat"
             className={style.input}
@@ -67,7 +61,7 @@ const AddProperty = () => {
           <select
             id="type"
             name="type"
-            value={state.type}
+            value={formFields.type}
             onChange={handleFieldChange}
             className={style.input}
           >
@@ -87,7 +81,7 @@ const AddProperty = () => {
               type="number"
               id="bedrooms"
               name="bedrooms"
-              value={state.bedrooms}
+              value={formFields.bedrooms}
               min={1}
               max={9}
               onChange={handleFieldChange}
@@ -100,7 +94,7 @@ const AddProperty = () => {
               type="number"
               id="bathrooms"
               name="bathrooms"
-              value={state.bathrooms}
+              value={formFields.bathrooms}
               min={1}
               max={9}
               onChange={handleFieldChange}
@@ -114,7 +108,7 @@ const AddProperty = () => {
             type="number"
             id="price"
             name="price"
-            value={state.price}
+            value={formFields.price}
             min={0}
             step="any"
             onChange={handleFieldChange}
@@ -126,7 +120,7 @@ const AddProperty = () => {
           <select
             id="city"
             name="city"
-            value={state.city}
+            value={formFields.city}
             onChange={handleFieldChange}
             className={style.input}
           >
@@ -142,7 +136,7 @@ const AddProperty = () => {
             type="email"
             id="email"
             name="email"
-            value={state.email}
+            value={formFields.email}
             onChange={handleFieldChange}
             placeholder="perry.baran@email.com"
             className={style.input}
