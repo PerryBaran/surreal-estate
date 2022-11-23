@@ -124,24 +124,14 @@ exports[`AddProperty snapshot 1`] = `
           name="city"
         >
           <option
-            value="Manchester"
-          >
-            Manchester
-          </option>
-          <option
             value="Leeds"
           >
             Leeds
           </option>
           <option
-            value="Sheffield"
+            value="Manchester"
           >
-            Sheffield
-          </option>
-          <option
-            value="Liverpool"
-          >
-            Liverpool
+            Manchester
           </option>
         </select>
       </label>

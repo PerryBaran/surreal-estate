@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import style from "../styles/addProperty.module.css";
 import postProperty from "../requests/postProperty";
 import Alert from "./Alert";
-import cities from "../data/cities";
 
-const AddProperty = () => {
+const AddProperty = ({ cities }) => {
   const initialState = {
     form: {
       title: "",
@@ -163,6 +163,10 @@ const AddProperty = () => {
       </form>
     </div>
   );
+};
+
+AddProperty.propTypes = {
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default AddProperty;

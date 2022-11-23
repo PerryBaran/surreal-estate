@@ -6,12 +6,14 @@ import Properties from "./Properties";
 import AddProperty from "./AddProperty";
 
 const App = () => {
+  const cities = ["Manchester", "Leeds", "Sheffield", "Liverpool"];
+
   return (
     <div className={style.app}>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Properties />} />
-        <Route path="add-property" element={<AddProperty />} />
+        <Route path="/" element={<Properties cities={cities} />} />
+        <Route path="add-property" element={<AddProperty cities={cities} />} />
       </Routes>
     </div>
   );

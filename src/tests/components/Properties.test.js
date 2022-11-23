@@ -1,15 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import PropTypes from "prop-types";
 import { render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import Properties from "../../components/Properties";
 
-const RenderWithRouter = () => {
+const RenderWithRouter = ({ cities }) => {
   return (
     <Router>
-      <Properties />
+      <Properties cities={cities} />
     </Router>
   );
+};
+
+RenderWithRouter.propTypes = {
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 describe("Properties", () => {
@@ -38,23 +43,25 @@ describe("Properties", () => {
     ],
   };
 
+  const validProps = ["leeds", "manchester"];
+
   beforeEach(() => {
     jest.spyOn(axios, "get").mockResolvedValue(mockResponse);
   });
 
   test("snapshot", () => {
-    const { asFragment } = render(<RenderWithRouter />);
+    const { asFragment } = render(<RenderWithRouter cities={validProps} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   test("renders properties", async () => {
-    render(<RenderWithRouter />);
+    render(<RenderWithRouter cities={validProps} />);
 
-    await waitFor(() =>
+    waitFor(() => {
       expect(screen.getAllByAltText("property")).toHaveLength(
         mockResponse.data.length
-      )
-    );
+      );
+    });
   });
 });

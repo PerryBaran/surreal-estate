@@ -3,14 +3,16 @@ import { render, screen } from "@testing-library/react";
 import AddProperty from "../../components/AddProperty";
 
 describe("AddProperty", () => {
+  const validProps = ["Leeds", "Manchester"];
+
   test("snapshot", () => {
-    const { asFragment } = render(<AddProperty />);
+    const { asFragment } = render(<AddProperty cities={validProps} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   test("content", () => {
-    render(<AddProperty />);
+    render(<AddProperty cities={validProps} />);
     const title = screen.getByLabelText(/title:/i);
     const type = screen.getByLabelText(/type:/i);
     const bedrooms = screen.getByLabelText(/bedrooms:/i);
@@ -27,16 +29,11 @@ describe("AddProperty", () => {
       endOfTerrace,
       cottage,
       bungalow,
-      manchester,
-      leeds,
-      sheffield,
-      liverpool,
     ] = options;
 
     expect(screen.getByRole("form")).toBeInTheDocument();
     expect(title).toHaveAttribute("name", "title");
     expect(title).toHaveAttribute("placeholder", "2 bed flat");
-    expect(title).toHaveDisplayValue("");
     expect(type).toHaveAttribute("name", "type");
     expect(type).toHaveDisplayValue("Flat");
     expect(type).toContain(flat);
@@ -77,15 +74,6 @@ describe("AddProperty", () => {
     expect(price).toHaveAttribute("step", "any");
     expect(city).toHaveAttribute("name", "city");
     expect(city).toHaveDisplayValue("Manchester");
-    expect(city).toContain(manchester);
-    expect(manchester).toHaveTextContent(/manchester/i);
-    expect(manchester).toHaveAttribute("value", "Manchester");
-    expect(leeds).toHaveTextContent(/leeds/i);
-    expect(leeds).toHaveAttribute("value", "Leeds");
-    expect(sheffield).toHaveTextContent(/sheffield/i);
-    expect(sheffield).toHaveAttribute("value", "Sheffield");
-    expect(liverpool).toHaveTextContent(/liverpool/i);
-    expect(liverpool).toHaveAttribute("value", "Liverpool");
     expect(email).toHaveAttribute("type", "email");
     expect(email).toHaveAttribute("name", "email");
     expect(email).toHaveAttribute("placeholder", "perry.baran@email.com");

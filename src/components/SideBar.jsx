@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import qs from "qs";
 import style from "../styles/sideBar.module.css";
-import cities from "../data/cities";
 import { search as searchIcon } from "../media/icons";
 
-const SideBar = () => {
+const SideBar = ({ cities }) => {
   const queryRef = useRef();
   const navigate = useNavigate();
   const { search } = useLocation();
@@ -91,6 +91,10 @@ const SideBar = () => {
       </form>
     </div>
   );
+};
+
+SideBar.propTypes = {
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default SideBar;

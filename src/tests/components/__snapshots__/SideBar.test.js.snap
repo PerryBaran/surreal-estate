@@ -18,16 +18,6 @@ exports[`SideBar snapshot 1`] = `
       >
         <a
           class="side-bar-link"
-          href="/?query={\\"city\\":\\"Manchester\\"}"
-        >
-          Manchester
-        </a>
-      </li>
-      <li
-        class="side-bar-item"
-      >
-        <a
-          class="side-bar-link"
           href="/?query={\\"city\\":\\"Leeds\\"}"
         >
           Leeds
@@ -38,19 +28,9 @@ exports[`SideBar snapshot 1`] = `
       >
         <a
           class="side-bar-link"
-          href="/?query={\\"city\\":\\"Sheffield\\"}"
+          href="/?query={\\"city\\":\\"Manchester\\"}"
         >
-          Sheffield
-        </a>
-      </li>
-      <li
-        class="side-bar-item"
-      >
-        <a
-          class="side-bar-link"
-          href="/?query={\\"city\\":\\"Liverpool\\"}"
-        >
-          Liverpool
+          Manchester
         </a>
       </li>
     </ul>

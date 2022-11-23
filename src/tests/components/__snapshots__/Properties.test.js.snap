@@ -21,9 +21,9 @@ exports[`Properties snapshot 1`] = `
         >
           <a
             class="side-bar-link"
-            href="/?query={\\"city\\":\\"Manchester\\"}"
+            href="/?query={\\"city\\":\\"leeds\\"}"
           >
-            Manchester
+            leeds
           </a>
         </li>
         <li
@@ -31,29 +31,9 @@ exports[`Properties snapshot 1`] = `
         >
           <a
             class="side-bar-link"
-            href="/?query={\\"city\\":\\"Leeds\\"}"
+            href="/?query={\\"city\\":\\"manchester\\"}"
           >
-            Leeds
-          </a>
-        </li>
-        <li
-          class="side-bar-item"
-        >
-          <a
-            class="side-bar-link"
-            href="/?query={\\"city\\":\\"Sheffield\\"}"
-          >
-            Sheffield
-          </a>
-        </li>
-        <li
-          class="side-bar-item"
-        >
-          <a
-            class="side-bar-link"
-            href="/?query={\\"city\\":\\"Liverpool\\"}"
-          >
-            Liverpool
+            manchester
           </a>
         </li>
       </ul>
