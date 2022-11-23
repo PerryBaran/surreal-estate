@@ -5,50 +5,88 @@ exports[`Properties snapshot 1`] = `
   <div
     class="properties"
   >
-    <ul
+    <div
       class="side-bar"
     >
-      <li
-        class="side-bar-item"
+      <h2
+        class="side-bar-heading"
       >
-        <a
-          class="side-bar-link"
-          href="/?query={\\"city\\":\\"Manchester\\"}"
-        >
-          Manchester
-        </a>
-      </li>
-      <li
-        class="side-bar-item"
+        Filter By City
+      </h2>
+      <ul
+        class="side-bar-list"
       >
-        <a
-          class="side-bar-link"
-          href="/?query={\\"city\\":\\"Leeds\\"}"
+        <li
+          class="side-bar-item"
         >
-          Leeds
-        </a>
-      </li>
-      <li
-        class="side-bar-item"
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Manchester\\"}"
+          >
+            Manchester
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Leeds\\"}"
+          >
+            Leeds
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Sheffield\\"}"
+          >
+            Sheffield
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Liverpool\\"}"
+          >
+            Liverpool
+          </a>
+        </li>
+      </ul>
+      <h2
+        class="side-bar-heading"
       >
-        <a
-          class="side-bar-link"
-          href="/?query={\\"city\\":\\"Sheffield\\"}"
-        >
-          Sheffield
-        </a>
-      </li>
-      <li
-        class="side-bar-item"
+        Sort By Price
+      </h2>
+      <ul
+        class="side-bar-list"
       >
-        <a
-          class="side-bar-link"
-          href="/?query={\\"city\\":\\"Liverpool\\"}"
+        <li
+          class="side-bar-item"
         >
-          Liverpool
-        </a>
-      </li>
-    </ul>
+          <a
+            class="side-bar-link"
+            href="/?sort={\\"price\\":-1}"
+          >
+            Ascending
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?sort={\\"price\\":1}"
+          >
+            Descending
+          </a>
+        </li>
+      </ul>
+    </div>
     <div
       class="properties-main"
     >
