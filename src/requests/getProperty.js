@@ -1,14 +1,20 @@
+/* eslint-disable no-console */
 import axios from "axios";
+import endpoint from "../data/endpoint";
 
-const getProperty = async (setProperties, setAlert) => {
+const getProperty = async (setProperties, setAlert, search) => {
+  let address = endpoint;
+  if (search) {
+    address += search;
+  }
+
   try {
-    const { data } = await axios.get(
-      "http://localhost:3000/api/v1/PropertyListing"
-    );
+    const { data } = await axios.get(address);
     setProperties(data);
     setAlert("");
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    setProperties([]);
     setAlert("Server Error, please try again later.");
   }
 };

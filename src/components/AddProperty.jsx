@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "../styles/addProperty.module.css";
 import postProperty from "../requests/postProperty";
 import Alert from "./Alert";
+import cities from "../data/cities";
 
 const AddProperty = () => {
   const initialState = {
@@ -137,10 +138,13 @@ const AddProperty = () => {
             onChange={handleFieldChange}
             className={style.input}
           >
-            <option value="Manchester">Manchester</option>
-            <option value="Leeds">Leeds</option>
-            <option value="Sheffield">Sheffield</option>
-            <option value="Liverpool">Liverpool</option>
+            {cities.map((city) => {
+              return (
+                <option value={city} key={city}>
+                  {city}
+                </option>
+              );
+            })}
           </select>
         </label>
         <label htmlFor="email">

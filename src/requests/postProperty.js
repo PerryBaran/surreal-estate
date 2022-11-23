@@ -1,12 +1,10 @@
+/* eslint-disable no-console */
 import axios from "axios";
+import endpoint from "../data/endpoint";
 
 const postProperty = async (property, setAlert) => {
-  console.log("post")
   try {
-    const response = await axios.post(
-      "http://localhost:3000/api/v1/PropertyListing",
-      property
-    );
+    const response = await axios.post(endpoint, property);
     setAlert({
       message: "Property added.",
       isSuccessful: true,

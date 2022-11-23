@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  height: 70px;
+  height: var(--nav-bar-height);
   background-color: var(--almost-white);
 }
 

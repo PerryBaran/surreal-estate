@@ -4,7 +4,11 @@ import { render } from "@testing-library/react";
 import App from "../../components/App";
 
 test("renders learn react link", () => {
-  const { asFragment } = render(<Router><App /></Router>);
+  const { asFragment } = render(
+    <Router>
+      <App />
+    </Router>
+  );
 
   expect(asFragment()).toMatchSnapshot();
 });

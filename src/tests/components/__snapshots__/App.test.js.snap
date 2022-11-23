@@ -39,9 +39,57 @@ exports[`renders learn react link 1`] = `
     <div
       class="properties"
     >
+      <ul
+        class="side-bar"
+      >
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Manchester\\"}"
+          >
+            Manchester
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Leeds\\"}"
+          >
+            Leeds
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Sheffield\\"}"
+          >
+            Sheffield
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Liverpool\\"}"
+          >
+            Liverpool
+          </a>
+        </li>
+      </ul>
       <div
-        class="properties-array"
-      />
+        class="properties-main"
+      >
+        <div
+          class="properties-array"
+        />
+      </div>
     </div>
   </div>
 </DocumentFragment>

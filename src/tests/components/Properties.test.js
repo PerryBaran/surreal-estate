@@ -1,7 +1,16 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import Properties from "../../components/Properties";
+
+const RenderWithRouter = () => {
+  return (
+    <Router>
+      <Properties />
+    </Router>
+  );
+};
 
 describe("Properties", () => {
   const mockResponse = {
@@ -14,6 +23,7 @@ describe("Properties", () => {
         price: "1000",
         city: "city 1",
         email: "email@email.com",
+        _id: "1324e5rtygujhgr",
       },
       {
         title: "titile 2",
@@ -23,6 +33,7 @@ describe("Properties", () => {
         price: "2000",
         city: "city 2",
         email: "fake@email.com",
+        _id: "23uhgvdb",
       },
     ],
   };
@@ -32,13 +43,13 @@ describe("Properties", () => {
   });
 
   test("snapshot", () => {
-    const { asFragment } = render(<Properties />);
+    const { asFragment } = render(<RenderWithRouter />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   test("renders properties", async () => {
-    render(<Properties />);
+    render(<RenderWithRouter />);
 
     await waitFor(() =>
       expect(screen.getAllByAltText("property")).toHaveLength(
