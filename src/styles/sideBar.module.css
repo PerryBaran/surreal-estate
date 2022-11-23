@@ -23,3 +23,39 @@
 .side-bar-link:hover {
   background-color: rgb(219, 219, 219);
 }
+
+.side-bar-search-form {
+  padding: 5px 10px;
+}
+
+.side-bar-search {
+  display: flex;
+  height: 25px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.side-bar-search-input {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  border: 1px solid var(--purple);
+  padding: 0 3px;
+}
+
+.side-bar-search-submit {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: var(--purple);
+  cursor: pointer;
+}
+
+.side-bar-search-submit > img {
+  aspect-ratio: 1;
+  width: 20px;
+  filter: invert();
+}

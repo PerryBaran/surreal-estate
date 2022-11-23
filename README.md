@@ -100,3 +100,5 @@ Generates a production build of the app and deploys it to GitHub pages.
 ## Attribution
 
 Created by **Perry Baran**.
+
+Icons by [flaticon](https://www.flaticon.com/).

@@ -49,7 +49,7 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  background-color: rgb(162, 10, 162);
+  background-color: var(--purple);
   text-decoration: none;
 }
 

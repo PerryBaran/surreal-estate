@@ -83,6 +83,36 @@ exports[`SideBar snapshot 1`] = `
         </a>
       </li>
     </ul>
+    <h2
+      class="side-bar-heading"
+    >
+      Search by Title
+    </h2>
+    <form
+      class="side-bar-search-form"
+    >
+      <div
+        class="side-bar-search"
+      >
+        <label
+          for="query"
+        >
+          <input
+            class="side-bar-search-input"
+            id="query"
+          />
+        </label>
+        <button
+          class="side-bar-search-submit"
+          type="submit"
+        >
+          <img
+            alt="search"
+            src="search.png"
+          />
+        </button>
+      </div>
+    </form>
   </div>
 </DocumentFragment>
 `;
