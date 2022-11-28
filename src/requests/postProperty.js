@@ -6,12 +6,11 @@ const postProperty = async (property, setAlert) => {
   const address = `${endpoint}/PropertyListing`;
 
   try {
-    const response = await axios.post(address, property);
+    await axios.post(address, property);
     setAlert({
       message: "Property added.",
       isSuccessful: true,
     });
-    console.log(response);
   } catch (err) {
     console.error(err);
     setAlert({

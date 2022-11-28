@@ -10,7 +10,7 @@ import SideBar from "./SideBar";
 import postFavourite from "../requests/postFavourite";
 import deleteFavourite from "../requests/deleteFavourte";
 
-const Properties = ({ cities, userId }) => {
+const Properties = ({ options, userId }) => {
   const [properties, setProperties] = useState([]);
   const [alert, setAlert] = useState("");
   const { search } = useLocation();
@@ -41,7 +41,7 @@ const Properties = ({ cities, userId }) => {
   return (
     <div className={style.properties}>
       <SideBar
-        cities={cities}
+        options={options}
         filterByFavourites={filterByFavourites}
         handleFilterFavourites={handleFilterFavourites}
         userId={userId}
@@ -73,7 +73,10 @@ const Properties = ({ cities, userId }) => {
 };
 
 Properties.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.shape({
+    cities: PropTypes.arrayOf(PropTypes.string),
+    types: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
   userId: PropTypes.string.isRequired,
 };
 

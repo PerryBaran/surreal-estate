@@ -6,8 +6,7 @@ const postFavourite = async (propertyInfo, setTriggerGet) => {
   const address = `${endpoint}/Favourite`;
 
   try {
-    const response = await axios.post(address, propertyInfo);
-    console.log(response);
+    await axios.post(address, propertyInfo);
     setTriggerGet((prev) => prev + 1);
   } catch (err) {
     console.error(err);

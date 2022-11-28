@@ -21,7 +21,6 @@ const getProperty = async (setProperties, setAlert, search, userId) => {
           propertyData[dataIndex].favouriteId = favourite._id;
         }
       });
-      console.log(propertyData);
     }
     setProperties(propertyData);
     setAlert("");

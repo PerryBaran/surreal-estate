@@ -8,7 +8,18 @@ import AddProperty from "./AddProperty";
 
 const App = () => {
   const [userId, setUserId] = useState("");
-  const cities = ["Manchester", "Leeds", "Sheffield", "Liverpool"];
+  const options = {
+    cities: ["Manchester", "Leeds", "Sheffield", "Liverpool"],
+    types: [
+      "Flat",
+      "Detached",
+      "Semi-Detached",
+      "Terraced",
+      "End Of Terrace",
+      "Cottage",
+      "Bungalow",
+    ],
+  };
 
   const handleLogin = ({ googleId }) => {
     setUserId(googleId);
@@ -39,9 +50,12 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<Properties cities={cities} userId={userId} />}
+          element={<Properties options={options} userId={userId} />}
         />
-        <Route path="add-property" element={<AddProperty cities={cities} />} />
+        <Route
+          path="add-property"
+          element={<AddProperty options={options} />}
+        />
       </Routes>
     </div>
   );

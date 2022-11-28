@@ -3,9 +3,17 @@
   width: 100%;
 }
 
+
+
 .side-bar-favourites > input {
   margin-left: 10px;
+  aspect-ratio: 1;
+  height: 15px;
   cursor: pointer;
+}
+
+.side-bar-favourites > input:checked {
+  accent-color: var(--purple);
 }
 
 .side-bar-heading {

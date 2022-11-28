@@ -4,7 +4,7 @@ import style from "../styles/addProperty.module.css";
 import postProperty from "../requests/postProperty";
 import Alert from "./Alert";
 
-const AddProperty = ({ cities }) => {
+const AddProperty = ({ options: { cities, types } }) => {
   const initialState = {
     form: {
       title: "",
@@ -79,13 +79,13 @@ const AddProperty = ({ cities }) => {
             onChange={handleFieldChange}
             className={style.input}
           >
-            <option value="Flat">Flat</option>
-            <option value="Detached">Detached</option>
-            <option value="Semi-Detached">Semi-Detached</option>
-            <option value="Terraced">Terraced</option>
-            <option value="End Of Terrace">End Of Terrace</option>
-            <option value="Cottage">Cottage</option>
-            <option value="Bungalow">Bungalow</option>
+            {types.map((type) => {
+              return (
+                <option value={type} key={type}>
+                  {type}
+                </option>
+              );
+            })}
           </select>
         </label>
         <div className={style.rooms}>
@@ -166,7 +166,10 @@ const AddProperty = ({ cities }) => {
 };
 
 AddProperty.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.shape({
+    cities: PropTypes.arrayOf(PropTypes.string),
+    types: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
 };
 
 export default AddProperty;

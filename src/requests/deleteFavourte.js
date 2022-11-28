@@ -6,8 +6,7 @@ const deleteFavourite = async (favouriteId, setTriggerGet) => {
   const address = `${endpoint}/Favourite/${favouriteId}`;
 
   try {
-    const response = await axios.delete(address);
-    console.log(response);
+    await axios.delete(address);
     setTriggerGet((prev) => prev + 1);
   } catch (err) {
     console.error(err);

@@ -6,7 +6,7 @@ import style from "../styles/sideBar.module.css";
 import { search as searchIcon } from "../media/icons";
 
 const SideBar = ({
-  cities,
+  options: { cities, types },
   userId,
   filterByFavourites,
   handleFilterFavourites,
@@ -71,6 +71,21 @@ const SideBar = ({
           );
         })}
       </ul>
+      <h2 className={style["side-bar-heading"]}>Filter By Type</h2>
+      <ul className={style["side-bar-list"]}>
+        {types.map((type) => {
+          return (
+            <li className={style["side-bar-item"]} key={type}>
+              <Link
+                to={buildQueryString("query", { type })}
+                className={style["side-bar-link"]}
+              >
+                {type}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
       <h2 className={style["side-bar-heading"]}>Sort By Price</h2>
       <ul className={style["side-bar-list"]}>
         <li className={style["side-bar-item"]}>
@@ -110,7 +125,10 @@ const SideBar = ({
 };
 
 SideBar.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.shape({
+    cities: PropTypes.arrayOf(PropTypes.string),
+    types: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
   filterByFavourites: PropTypes.bool.isRequired,
   handleFilterFavourites: PropTypes.func.isRequired,
   userId: PropTypes.string.isRequired,
