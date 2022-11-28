@@ -25,6 +25,8 @@ Created as part of the Manchester Codes full-stack web development boot-camp.
 - [Axios](https://www.npmjs.com/package/axios)
 - [Prop-Types](https://www.npmjs.com/package/prop-types)
 - [qs](https://www.npmjs.com/package/qs)
+- [gapi-script](https://www.npmjs.com/package/gapi-script)
+- [react-google-login](https://www.npmjs.com/package/react-google-login)
 
 ### Dev Dependencies
 

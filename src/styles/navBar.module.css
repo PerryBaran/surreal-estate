@@ -1,7 +1,13 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--almost-white);
+}
+
 .navbar {
   display: flex;
   height: var(--nav-bar-height);
-  background-color: var(--almost-white);
+  width: 100%;
 }
 
 .logo {
@@ -20,4 +26,15 @@
 
 .item > a {
   text-decoration: none;
+}
+
+.google-login {
+  padding: 2px;
+  margin: 2px;
+  border-radius: 2px;
+  background-color: lightgrey;
+}
+
+.google-login > * {
+  height: 100%;
 }
