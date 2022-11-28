@@ -1,0 +1,44 @@
+.save-property,
+.remove-property {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  background-color: var(--almost-white);
+  
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 1.2rem;
+  cursor: pointer;
+  height: 30px;
+}
+
+.save-property {
+  border: 2px solid var(--purple);
+  color: var(--purple);
+}
+
+.save-property:hover {
+  background-color: var(--purple);
+  color: white;
+}
+
+.remove-property {
+  border: 2px solid green;
+  color: green;
+}
+
+.remove-property:hover {
+  background-color: red;
+  border: red;
+  color: var(--almost-white);
+}
+
+.remove-property:hover span {
+  display: none;
+}
+
+.remove-property:hover::before {
+  content: "Remove"
+}

@@ -8,15 +8,17 @@ import PropertyCard from "./PropertyCard";
 import Alert from "./Alert";
 import SideBar from "./SideBar";
 import postFavourite from "../requests/postFavourite";
+import deleteFavourite from "../requests/deleteFavourte";
 
 const Properties = ({ cities, userId }) => {
   const [properties, setProperties] = useState([]);
   const [alert, setAlert] = useState("");
   const { search } = useLocation();
+  const [triggerGet, setTriggerGet] = useState(0);
 
   useDidMountEffect(() => {
-    getProperty(setProperties, setAlert, search);
-  }, [search]);
+    getProperty(setProperties, setAlert, search, userId);
+  }, [search, userId, triggerGet]);
 
   const handleSaveProperty = (propertyId) => {
     const propertyInfo = {
@@ -24,7 +26,11 @@ const Properties = ({ cities, userId }) => {
       fbUserId: userId,
     };
 
-    postFavourite(propertyInfo);
+    postFavourite(propertyInfo, setTriggerGet);
+  };
+
+  const handleRemoveFavourite = (favouriteId) => {
+    deleteFavourite(favouriteId, setTriggerGet);
   };
 
   return (
@@ -40,6 +46,7 @@ const Properties = ({ cities, userId }) => {
                 {...property}
                 userId={userId}
                 onSaveProperty={handleSaveProperty}
+                onRemoveProperty={handleRemoveFavourite}
               />
             );
           })}

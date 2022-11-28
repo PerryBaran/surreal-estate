@@ -2,11 +2,11 @@
 import axios from "axios";
 import endpoint from "../data/endpoint";
 
-const postFavourite = async (propertyInfo, setTriggerGet) => {
-  const address = `${endpoint}/Favourite`;
+const deleteFavourite = async (favouriteId, setTriggerGet) => {
+  const address = `${endpoint}/Favourite/${favouriteId}`;
 
   try {
-    const response = await axios.post(address, propertyInfo);
+    const response = await axios.delete(address);
     console.log(response);
     setTriggerGet((prev) => prev + 1);
   } catch (err) {
@@ -14,4 +14,4 @@ const postFavourite = async (propertyInfo, setTriggerGet) => {
   }
 };
 
-export default postFavourite;
+export default deleteFavourite;

@@ -19,3 +19,7 @@
 body {
   background-color: lightgray;
 }
+
+span {
+  color: inherit;
+}

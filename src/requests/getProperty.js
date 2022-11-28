@@ -2,15 +2,26 @@
 import axios from "axios";
 import endpoint from "../data/endpoint";
 
-const getProperty = async (setProperties, setAlert, search) => {
-  let address = `${endpoint}/PropertyListing`;
+const getProperty = async (setProperties, setAlert, search, userId) => {
+  let propertyAddress = `${endpoint}/PropertyListing`;
   if (search) {
-    address += search;
+    propertyAddress += search;
   }
+  const favouriteAddress = `${endpoint}/Favourite?query={"fbUserId":"${userId}"}`;
 
   try {
-    const { data } = await axios.get(address);
-    setProperties(data);
+    const { data: propertyData } = await axios.get(propertyAddress);
+    if (userId) {
+      const { data: favouriteData } = await axios.get(favouriteAddress);
+      favouriteData.forEach((favourite) => {
+        const dataIndex = propertyData.findIndex(
+          (value) => value._id === favourite.propertyListing
+        );
+        propertyData[dataIndex].favouriteId = favourite._id;
+      });
+      console.log(propertyData);
+    }
+    setProperties(propertyData);
     setAlert("");
   } catch (err) {
     console.error(err);

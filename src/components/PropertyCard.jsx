@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "../styles/propertyCard.module.css";
-import { bath, bed, email as emailIcon, star } from "../media/icons";
+import { bath, bed, email as emailIcon } from "../media/icons";
 import card from "../media/images/card.png";
+import SaveProperty from "./SaveProperty";
 
 const PropertyCard = ({
   _id,
@@ -13,8 +14,10 @@ const PropertyCard = ({
   price,
   city,
   email,
+  favouriteId,
   userId,
   onSaveProperty,
+  onRemoveProperty,
 }) => {
   return (
     <div className={style["property-card"]}>
@@ -52,22 +55,19 @@ const PropertyCard = ({
         />
         <p>Email</p>
       </a>
-      {userId && (
-        <button
-          type="button"
-          onClick={() => onSaveProperty(_id)}
-          className={style["property-card-save"]}
-        >
-          <img
-            src={star}
-            alt="favourite"
-            className={style["property-card-icon"]}
-          />
-          <p>Save</p>
-        </button>
-      )}
+      <SaveProperty
+        userId={userId}
+        _id={_id}
+        favouriteId={favouriteId}
+        onSaveProperty={onSaveProperty}
+        onRemoveProperty={onRemoveProperty}
+      />
     </div>
   );
+};
+
+PropertyCard.defaultProps = {
+  favouriteId: null,
 };
 
 PropertyCard.propTypes = {
@@ -81,6 +81,8 @@ PropertyCard.propTypes = {
   email: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
   onSaveProperty: PropTypes.func.isRequired,
+  onRemoveProperty: PropTypes.func.isRequired,
+  favouriteId: PropTypes.string,
 };
 
 export default PropertyCard;
