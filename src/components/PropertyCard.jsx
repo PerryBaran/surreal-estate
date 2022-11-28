@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "../styles/propertyCard.module.css";
-import { bath, bed, email as emailIcon } from "../media/icons";
+import { bath, bed, email as emailIcon, star } from "../media/icons";
 import card from "../media/images/card.png";
 
 const PropertyCard = ({
+  _id,
   title,
   type,
   bathrooms,
@@ -12,6 +13,8 @@ const PropertyCard = ({
   price,
   city,
   email,
+  userId,
+  onSaveProperty,
 }) => {
   return (
     <div className={style["property-card"]}>
@@ -49,11 +52,26 @@ const PropertyCard = ({
         />
         <p>Email</p>
       </a>
+      {userId && (
+        <button
+          type="button"
+          onClick={() => onSaveProperty(_id)}
+          className={style["property-card-save"]}
+        >
+          <img
+            src={star}
+            alt="favourite"
+            className={style["property-card-icon"]}
+          />
+          <p>Save</p>
+        </button>
+      )}
     </div>
   );
 };
 
 PropertyCard.propTypes = {
+  _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   bathrooms: PropTypes.string.isRequired,
@@ -61,6 +79,8 @@ PropertyCard.propTypes = {
   price: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
+  onSaveProperty: PropTypes.func.isRequired,
 };
 
 export default PropertyCard;

@@ -3,7 +3,7 @@ import axios from "axios";
 import endpoint from "../data/endpoint";
 
 const getProperty = async (setProperties, setAlert, search) => {
-  let address = endpoint;
+  let address = `${endpoint}/PropertyListing`;
   if (search) {
     address += search;
   }

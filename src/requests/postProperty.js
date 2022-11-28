@@ -3,8 +3,10 @@ import axios from "axios";
 import endpoint from "../data/endpoint";
 
 const postProperty = async (property, setAlert) => {
+  const address = `${endpoint}/PropertyListing`;
+
   try {
-    const response = await axios.post(endpoint, property);
+    const response = await axios.post(address, property);
     setAlert({
       message: "Property added.",
       isSuccessful: true,

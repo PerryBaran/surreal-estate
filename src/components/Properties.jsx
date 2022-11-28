@@ -7,8 +7,9 @@ import getProperty from "../requests/getProperty";
 import PropertyCard from "./PropertyCard";
 import Alert from "./Alert";
 import SideBar from "./SideBar";
+import postFavourite from "../requests/postFavourite";
 
-const Properties = ({ cities }) => {
+const Properties = ({ cities, userId }) => {
   const [properties, setProperties] = useState([]);
   const [alert, setAlert] = useState("");
   const { search } = useLocation();
@@ -17,6 +18,15 @@ const Properties = ({ cities }) => {
     getProperty(setProperties, setAlert, search);
   }, [search]);
 
+  const handleSaveProperty = (propertyId) => {
+    const propertyInfo = {
+      propertyListing: propertyId,
+      fbUserId: userId,
+    };
+
+    postFavourite(propertyInfo);
+  };
+
   return (
     <div className={style.properties}>
       <SideBar cities={cities} />
@@ -24,7 +34,14 @@ const Properties = ({ cities }) => {
         <Alert message={alert} />
         <div className={style["properties-array"]}>
           {properties.map((property) => {
-            return <PropertyCard key={property._id} {...property} />;
+            return (
+              <PropertyCard
+                key={property._id}
+                {...property}
+                userId={userId}
+                onSaveProperty={handleSaveProperty}
+              />
+            );
           })}
         </div>
       </div>
@@ -34,6 +51,7 @@ const Properties = ({ cities }) => {
 
 Properties.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  userId: PropTypes.string.isRequired,
 };
 
 export default Properties;

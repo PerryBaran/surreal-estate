@@ -37,7 +37,10 @@ const App = () => {
         userId={userId}
       />
       <Routes>
-        <Route path="/" element={<Properties cities={cities} />} />
+        <Route
+          path="/"
+          element={<Properties cities={cities} userId={userId} />}
+        />
         <Route path="add-property" element={<AddProperty cities={cities} />} />
       </Routes>
     </div>
