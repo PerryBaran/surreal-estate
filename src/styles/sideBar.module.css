@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+.side-bar-favourites > input {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 .side-bar-heading {
   font-size: 1.2rem;
   padding: 5px 10px;

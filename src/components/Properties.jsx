@@ -15,6 +15,7 @@ const Properties = ({ cities, userId }) => {
   const [alert, setAlert] = useState("");
   const { search } = useLocation();
   const [triggerGet, setTriggerGet] = useState(0);
+  const [filterByFavourites, setFilterByFavourties] = useState(false);
 
   useDidMountEffect(() => {
     getProperty(setProperties, setAlert, search, userId);
@@ -33,22 +34,37 @@ const Properties = ({ cities, userId }) => {
     deleteFavourite(favouriteId, setTriggerGet);
   };
 
+  const handleFilterFavourites = () => {
+    setFilterByFavourties((prev) => !prev);
+  };
+
   return (
     <div className={style.properties}>
-      <SideBar cities={cities} />
+      <SideBar
+        cities={cities}
+        filterByFavourites={filterByFavourites}
+        handleFilterFavourites={handleFilterFavourites}
+        userId={userId}
+      />
       <div className={style["properties-main"]}>
         <Alert message={alert} />
         <div className={style["properties-array"]}>
           {properties.map((property) => {
-            return (
-              <PropertyCard
-                key={property._id}
-                {...property}
-                userId={userId}
-                onSaveProperty={handleSaveProperty}
-                onRemoveProperty={handleRemoveFavourite}
-              />
-            );
+            if (
+              !filterByFavourites ||
+              (filterByFavourites && property.favouriteId)
+            ) {
+              return (
+                <PropertyCard
+                  key={property._id}
+                  {...property}
+                  userId={userId}
+                  onSaveProperty={handleSaveProperty}
+                  onRemoveProperty={handleRemoveFavourite}
+                />
+              );
+            }
+            return null;
           })}
         </div>
       </div>

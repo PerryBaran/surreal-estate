@@ -5,7 +5,12 @@ import qs from "qs";
 import style from "../styles/sideBar.module.css";
 import { search as searchIcon } from "../media/icons";
 
-const SideBar = ({ cities }) => {
+const SideBar = ({
+  cities,
+  userId,
+  filterByFavourites,
+  handleFilterFavourites,
+}) => {
   const queryRef = useRef();
   const navigate = useNavigate();
   const { search } = useLocation();
@@ -40,6 +45,17 @@ const SideBar = ({ cities }) => {
 
   return (
     <div className={style["side-bar"]}>
+      {userId && (
+        <label htmlFor="favourites" className={style["side-bar-favourites"]}>
+          <h2 className={style["side-bar-heading"]}>Filter By Favourites</h2>
+          <input
+            type="checkbox"
+            id="favourites"
+            checked={filterByFavourites}
+            onChange={handleFilterFavourites}
+          />
+        </label>
+      )}
       <h2 className={style["side-bar-heading"]}>Filter By City</h2>
       <ul className={style["side-bar-list"]}>
         {cities.map((city) => {
@@ -95,6 +111,9 @@ const SideBar = ({ cities }) => {
 
 SideBar.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filterByFavourites: PropTypes.bool.isRequired,
+  handleFilterFavourites: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
 };
 
 export default SideBar;

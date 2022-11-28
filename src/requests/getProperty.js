@@ -17,7 +17,9 @@ const getProperty = async (setProperties, setAlert, search, userId) => {
         const dataIndex = propertyData.findIndex(
           (value) => value._id === favourite.propertyListing
         );
-        propertyData[dataIndex].favouriteId = favourite._id;
+        if (dataIndex >= 0) {
+          propertyData[dataIndex].favouriteId = favourite._id;
+        }
       });
       console.log(propertyData);
     }
