@@ -54,7 +54,9 @@ const App = () => {
         />
         <Route
           path="add-property"
-          element={<AddProperty options={options} />}
+          element={
+            <AddProperty cities={options.cities} types={options.types} />
+          }
         />
       </Routes>
     </div>

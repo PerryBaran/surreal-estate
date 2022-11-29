@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SideBar snapshot 1`] = `
+exports[`SideBar falsey userId snapshot 1`] = `
 <DocumentFragment>
   <div
     class="side-bar"
@@ -31,6 +31,35 @@ exports[`SideBar snapshot 1`] = `
           href="/?query={\\"city\\":\\"Manchester\\"}"
         >
           Manchester
+        </a>
+      </li>
+    </ul>
+    <h2
+      class="side-bar-heading"
+    >
+      Filter By Type
+    </h2>
+    <ul
+      class="side-bar-list"
+    >
+      <li
+        class="side-bar-item"
+      >
+        <a
+          class="side-bar-link"
+          href="/?query={\\"type\\":\\"Flat\\"}"
+        >
+          Flat
+        </a>
+      </li>
+      <li
+        class="side-bar-item"
+      >
+        <a
+          class="side-bar-link"
+          href="/?query={\\"type\\":\\"Detached\\"}"
+        >
+          Detached
         </a>
       </li>
     </ul>

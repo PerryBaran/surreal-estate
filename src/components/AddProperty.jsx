@@ -4,15 +4,15 @@ import style from "../styles/addProperty.module.css";
 import postProperty from "../requests/postProperty";
 import Alert from "./Alert";
 
-const AddProperty = ({ options: { cities, types } }) => {
+const AddProperty = ({ cities, types }) => {
   const initialState = {
     form: {
       title: "",
-      type: "Flat",
+      type: types[0],
       bedrooms: 1,
       bathrooms: 1,
       price: 0,
-      city: "Manchester",
+      city: cities[0],
       email: "",
     },
     alert: {
@@ -166,10 +166,8 @@ const AddProperty = ({ options: { cities, types } }) => {
 };
 
 AddProperty.propTypes = {
-  options: PropTypes.shape({
-    cities: PropTypes.arrayOf(PropTypes.string),
-    types: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  types: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default AddProperty;

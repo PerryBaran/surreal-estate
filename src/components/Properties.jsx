@@ -41,7 +41,8 @@ const Properties = ({ options, userId }) => {
   return (
     <div className={style.properties}>
       <SideBar
-        options={options}
+        cities={options.cities}
+        types={options.types}
         filterByFavourites={filterByFavourites}
         handleFilterFavourites={handleFilterFavourites}
         userId={userId}

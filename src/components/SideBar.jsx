@@ -6,7 +6,8 @@ import style from "../styles/sideBar.module.css";
 import { search as searchIcon } from "../media/icons";
 
 const SideBar = ({
-  options: { cities, types },
+  cities,
+  types,
   userId,
   filterByFavourites,
   handleFilterFavourites,
@@ -125,10 +126,8 @@ const SideBar = ({
 };
 
 SideBar.propTypes = {
-  options: PropTypes.shape({
-    cities: PropTypes.arrayOf(PropTypes.string),
-    types: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  types: PropTypes.arrayOf(PropTypes.string).isRequired,
   filterByFavourites: PropTypes.bool.isRequired,
   handleFilterFavourites: PropTypes.func.isRequired,
   userId: PropTypes.string.isRequired,

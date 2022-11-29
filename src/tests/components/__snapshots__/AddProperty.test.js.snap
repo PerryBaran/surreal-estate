@@ -41,31 +41,6 @@ exports[`AddProperty snapshot 1`] = `
           >
             Detached
           </option>
-          <option
-            value="Semi-Detached"
-          >
-            Semi-Detached
-          </option>
-          <option
-            value="Terraced"
-          >
-            Terraced
-          </option>
-          <option
-            value="End Of Terrace"
-          >
-            End Of Terrace
-          </option>
-          <option
-            value="Cottage"
-          >
-            Cottage
-          </option>
-          <option
-            value="Bungalow"
-          >
-            Bungalow
-          </option>
         </select>
       </label>
       <div

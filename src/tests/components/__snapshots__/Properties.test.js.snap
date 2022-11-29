@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Properties snapshot 1`] = `
+exports[`Properties falsey userId snapshot 1`] = `
 <DocumentFragment>
   <div
     class="properties"
@@ -21,9 +21,9 @@ exports[`Properties snapshot 1`] = `
         >
           <a
             class="side-bar-link"
-            href="/?query={\\"city\\":\\"leeds\\"}"
+            href="/?query={\\"city\\":\\"Leeds\\"}"
           >
-            leeds
+            Leeds
           </a>
         </li>
         <li
@@ -31,9 +31,189 @@ exports[`Properties snapshot 1`] = `
         >
           <a
             class="side-bar-link"
-            href="/?query={\\"city\\":\\"manchester\\"}"
+            href="/?query={\\"city\\":\\"Manchester\\"}"
           >
-            manchester
+            Manchester
+          </a>
+        </li>
+      </ul>
+      <h2
+        class="side-bar-heading"
+      >
+        Filter By Type
+      </h2>
+      <ul
+        class="side-bar-list"
+      >
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"type\\":\\"Flat\\"}"
+          >
+            Flat
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"type\\":\\"Detached\\"}"
+          >
+            Detached
+          </a>
+        </li>
+      </ul>
+      <h2
+        class="side-bar-heading"
+      >
+        Sort By Price
+      </h2>
+      <ul
+        class="side-bar-list"
+      >
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?sort={\\"price\\":-1}"
+          >
+            Ascending
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?sort={\\"price\\":1}"
+          >
+            Descending
+          </a>
+        </li>
+      </ul>
+      <h2
+        class="side-bar-heading"
+      >
+        Search by Title
+      </h2>
+      <form
+        class="side-bar-search-form"
+      >
+        <div
+          class="side-bar-search"
+        >
+          <label
+            for="query"
+          >
+            <input
+              class="side-bar-search-input"
+              id="query"
+            />
+          </label>
+          <button
+            class="side-bar-search-submit"
+            type="submit"
+          >
+            <img
+              alt="search"
+              src="search.png"
+            />
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      class="properties-main"
+    >
+      <div
+        class="properties-array"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Properties truthy userId snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="properties"
+  >
+    <div
+      class="side-bar"
+    >
+      <label
+        class="side-bar-favourites"
+        for="favourites"
+      >
+        <h2
+          class="side-bar-heading"
+        >
+          Filter By Favourites
+        </h2>
+        <input
+          id="favourites"
+          type="checkbox"
+        />
+      </label>
+      <h2
+        class="side-bar-heading"
+      >
+        Filter By City
+      </h2>
+      <ul
+        class="side-bar-list"
+      >
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Leeds\\"}"
+          >
+            Leeds
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"city\\":\\"Manchester\\"}"
+          >
+            Manchester
+          </a>
+        </li>
+      </ul>
+      <h2
+        class="side-bar-heading"
+      >
+        Filter By Type
+      </h2>
+      <ul
+        class="side-bar-list"
+      >
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"type\\":\\"Flat\\"}"
+          >
+            Flat
+          </a>
+        </li>
+        <li
+          class="side-bar-item"
+        >
+          <a
+            class="side-bar-link"
+            href="/?query={\\"type\\":\\"Detached\\"}"
+          >
+            Detached
           </a>
         </li>
       </ul>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PropertyCard snapshot 1`] = `
+exports[`PropertyCard falsy userId snapshot 1`] = `
 <DocumentFragment>
   <div
     class="property-card"
@@ -66,6 +66,160 @@ exports[`PropertyCard snapshot 1`] = `
         Email
       </p>
     </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`PropertyCard truthy userId and favouriteId snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="property-card"
+  >
+    <img
+      alt="property"
+      class="property-card-image"
+      src="card.png"
+    />
+    <h2
+      class="property-card-title"
+    >
+      2 bed flat
+    </h2>
+    <p
+      class="property-card-info"
+    >
+      flat - Leeds
+    </p>
+    <div
+      class="property-card-rooms"
+    >
+      <div
+        class="property-card-room"
+      >
+        <img
+          alt="bathrooms"
+          class="property-card-icon"
+          src="bath.png"
+        />
+        <p>
+          1
+        </p>
+      </div>
+      <div
+        class="property-card-room"
+      >
+        <img
+          alt="bedrooms"
+          class="property-card-icon"
+          src="bed.png"
+        />
+        <p>
+          2
+        </p>
+      </div>
+    </div>
+    <p
+      class="property-card-price"
+    >
+      £ 5000.00
+    </p>
+    <a
+      class="property-card-email"
+      href="mailto:not.real@email.com"
+    >
+      <img
+        alt="email"
+        class="property-card-icon"
+        src="email.png"
+      />
+      <p>
+        Email
+      </p>
+    </a>
+    <button
+      class="remove-property"
+      type="button"
+    >
+      <span>
+        Saved
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`PropertyCard truthy userId snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="property-card"
+  >
+    <img
+      alt="property"
+      class="property-card-image"
+      src="card.png"
+    />
+    <h2
+      class="property-card-title"
+    >
+      2 bed flat
+    </h2>
+    <p
+      class="property-card-info"
+    >
+      flat - Leeds
+    </p>
+    <div
+      class="property-card-rooms"
+    >
+      <div
+        class="property-card-room"
+      >
+        <img
+          alt="bathrooms"
+          class="property-card-icon"
+          src="bath.png"
+        />
+        <p>
+          1
+        </p>
+      </div>
+      <div
+        class="property-card-room"
+      >
+        <img
+          alt="bedrooms"
+          class="property-card-icon"
+          src="bed.png"
+        />
+        <p>
+          2
+        </p>
+      </div>
+    </div>
+    <p
+      class="property-card-price"
+    >
+      £ 5000.00
+    </p>
+    <a
+      class="property-card-email"
+      href="mailto:not.real@email.com"
+    >
+      <img
+        alt="email"
+        class="property-card-icon"
+        src="email.png"
+      />
+      <p>
+        Email
+      </p>
+    </a>
+    <button
+      class="save-property"
+      type="button"
+    >
+      Save
+    </button>
   </div>
 </DocumentFragment>
 `;

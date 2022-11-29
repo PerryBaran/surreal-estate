@@ -1,59 +1,73 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import PropTypes from "prop-types";
 import { render, screen } from "@testing-library/react";
 import SideBar from "../../components/SideBar";
 
-const RenderWithRouter = ({ cities }) => {
+const RenderWithRouter = (props) => {
   return (
     <Router>
-      <SideBar cities={cities} />
+      <SideBar {...props} />
     </Router>
   );
 };
 
-RenderWithRouter.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
-
 describe("SideBar", () => {
-  const validProps = ["Leeds", "Manchester"];
+  describe("falsey userId", () => {
+    const validProps = {
+      cities: ["Leeds", "Manchester"],
+      types: ["Flat", "Detached"],
+      userId: "",
+      filterByFavourites: jest.fn(),
+      handleFilterFavourites: jest.fn(),
+    };
 
-  test("snapshot", () => {
-    const { asFragment } = render(<RenderWithRouter cities={validProps} />);
+    test("snapshot", () => {
+      const { asFragment } = render(<RenderWithRouter {...validProps} />);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(asFragment()).toMatchSnapshot();
+    });
 
-  test("renders cities", () => {
-    render(<RenderWithRouter cities={validProps} />);
+    test("renders cities", () => {
+      render(<RenderWithRouter {...validProps} />);
 
-    expect(screen.getByText(/filter by city/i)).toBeInstanceOf(
-      HTMLHeadingElement
-    );
-    expect(screen.getAllByRole("link")).toHaveLength(validProps.length + 2);
-    validProps.forEach((city) => {
-      expect(screen.getByText(city)).toHaveAttribute(
+      expect(screen.getByText(/filter by city/i)).toBeInstanceOf(
+        HTMLHeadingElement
+      );
+      expect(screen.getAllByRole("link")).toHaveLength(
+        validProps.cities.length + validProps.types.length + 2 // Link for each city, type and price (ascending, descending)
+      );
+      validProps.cities.forEach((city) => {
+        expect(screen.getByText(city)).toHaveAttribute(
+          "href",
+          `/?query={"city":"${city}"}`
+        );
+      });
+      validProps.types.forEach((type) => {
+        expect(screen.getByText(type)).toHaveAttribute(
+          "href",
+          `/?query={"type":"${type}"}`
+        );
+      });
+      expect(screen.getByText(/sort by price/i)).toBeInstanceOf(
+        HTMLHeadingElement
+      );
+      expect(screen.getByText(/ascending/i)).toHaveAttribute(
         "href",
-        `/?query={"city":"${city}"}`
+        `/?sort={"price":-1}`
+      );
+      expect(screen.getByText(/descending/i)).toHaveAttribute(
+        "href",
+        `/?sort={"price":1}`
+      );
+      expect(screen.getByText(/search by title/i)).toBeInstanceOf(
+        HTMLHeadingElement
+      );
+      expect(screen.getByRole("textbox")).toHaveAttribute("id", "query");
+      expect(screen.getByRole("button")).toHaveAttribute("type", "submit");
+      expect(screen.getByAltText("search")).toHaveAttribute(
+        "src",
+        "search.png"
       );
     });
-    expect(screen.getByText(/sort by price/i)).toBeInstanceOf(
-      HTMLHeadingElement
-    );
-    expect(screen.getByText(/ascending/i)).toHaveAttribute(
-      "href",
-      `/?sort={"price":-1}`
-    );
-    expect(screen.getByText(/descending/i)).toHaveAttribute(
-      "href",
-      `/?sort={"price":1}`
-    );
-    expect(screen.getByText(/search by title/i)).toBeInstanceOf(
-      HTMLHeadingElement
-    );
-    expect(screen.getByRole("textbox")).toHaveAttribute("id", "query");
-    expect(screen.getByRole("button")).toHaveAttribute("type", "submit");
-    expect(screen.getByAltText("search")).toHaveAttribute("src", "search.png");
   });
 });

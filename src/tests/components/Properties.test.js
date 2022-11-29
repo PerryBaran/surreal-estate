@@ -1,20 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import PropTypes from "prop-types";
 import { render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import Properties from "../../components/Properties";
 
-const RenderWithRouter = ({ cities }) => {
+const RenderWithRouter = (props) => {
   return (
     <Router>
-      <Properties cities={cities} />
+      <Properties {...props} />
     </Router>
   );
-};
-
-RenderWithRouter.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 describe("Properties", () => {
@@ -43,25 +38,64 @@ describe("Properties", () => {
     ],
   };
 
-  const validProps = ["leeds", "manchester"];
-
   beforeEach(() => {
     jest.spyOn(axios, "get").mockResolvedValue(mockResponse);
   });
 
-  test("snapshot", () => {
-    const { asFragment } = render(<RenderWithRouter cities={validProps} />);
+  describe("falsey userId", () => {
+    const validProps = {
+      options: {
+        cities: ["Leeds", "Manchester"],
+        types: ["Flat", "Detached"],
+      },
+      userId: "",
+    };
 
-    expect(asFragment()).toMatchSnapshot();
+    test("snapshot", () => {
+      const { asFragment } = render(
+        <RenderWithRouter
+          options={validProps.options}
+          userId={validProps.userId}
+        />
+      );
+
+      expect(asFragment()).toMatchSnapshot();
+    });
+
+    test("renders properties", async () => {
+      render(
+        <RenderWithRouter
+          options={validProps.options}
+          userId={validProps.userId}
+        />
+      );
+
+      waitFor(() => {
+        expect(screen.getAllByAltText("property")).toHaveLength(
+          mockResponse.data.length
+        );
+      });
+    });
   });
 
-  test("renders properties", async () => {
-    render(<RenderWithRouter cities={validProps} />);
+  describe("truthy userId", () => {
+    const validProps = {
+      options: {
+        cities: ["Leeds", "Manchester"],
+        types: ["Flat", "Detached"],
+      },
+      userId: "truthy",
+    };
 
-    waitFor(() => {
-      expect(screen.getAllByAltText("property")).toHaveLength(
-        mockResponse.data.length
+    test("snapshot", () => {
+      const { asFragment } = render(
+        <RenderWithRouter
+          options={validProps.options}
+          userId={validProps.userId}
+        />
       );
+
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 });
