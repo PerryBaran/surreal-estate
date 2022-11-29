@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -13,29 +14,42 @@ import deleteFavourite from "../requests/deleteFavourte";
 const Properties = ({ options, userId }) => {
   const [properties, setProperties] = useState([]);
   const [alert, setAlert] = useState("");
-  const { search } = useLocation();
-  const [triggerGet, setTriggerGet] = useState(0);
   const [filterByFavourites, setFilterByFavourties] = useState(false);
+  const { search } = useLocation();
 
   useDidMountEffect(() => {
     getProperty(setProperties, setAlert, search, userId);
-  }, [search, userId, triggerGet]);
+  }, [search, userId]);
 
-  const handleSaveProperty = (propertyId) => {
+  const handleSaveProperty = async (propertyId) => {
     const propertyInfo = {
       propertyListing: propertyId,
       fbUserId: userId,
     };
 
-    postFavourite(propertyInfo, setTriggerGet);
+    try {
+      await postFavourite(propertyInfo);
+      getProperty(setProperties, setAlert, search, userId);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleRemoveFavourite = (favouriteId) => {
-    deleteFavourite(favouriteId, setTriggerGet);
+  const handleRemoveFavourite = async (favouriteId) => {
+    try {
+      await deleteFavourite(favouriteId);
+      getProperty(setProperties, setAlert, search, userId);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleFilterFavourites = () => {
-    setFilterByFavourties((prev) => !prev);
+  const handleFilterFavourites = (value) => {
+    if (value) {
+      setFilterByFavourties(value);
+    } else {
+      setFilterByFavourties((prev) => !prev);
+    }
   };
 
   return (

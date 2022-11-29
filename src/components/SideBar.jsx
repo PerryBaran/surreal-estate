@@ -16,9 +16,13 @@ const SideBar = ({
   const navigate = useNavigate();
   const { search } = useLocation();
 
+  const highlightItem = (value) => {
+    const searchArray = search.split(/[%2:}]+/i);
+    return searchArray.includes(value) ? style.highlight : null;
+  };
+
   const buildQueryString = (operation, valueObj) => {
     const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
-
     const newQueryParams = {
       ...currentQueryParams,
       [operation]: JSON.stringify({
@@ -44,6 +48,11 @@ const SideBar = ({
     navigate(newQueryString);
   };
 
+  const handleReset = () => {
+    handleFilterFavourites(false);
+    navigate("/");
+  };
+
   return (
     <div className={style["side-bar"]}>
       {userId && (
@@ -53,7 +62,7 @@ const SideBar = ({
             type="checkbox"
             id="favourites"
             checked={filterByFavourites}
-            onChange={handleFilterFavourites}
+            onChange={() => handleFilterFavourites()}
           />
         </label>
       )}
@@ -64,7 +73,7 @@ const SideBar = ({
             <li className={style["side-bar-item"]} key={city}>
               <Link
                 to={buildQueryString("query", { city })}
-                className={style["side-bar-link"]}
+                className={`${style["side-bar-link"]} ${highlightItem(city)}`}
               >
                 {city}
               </Link>
@@ -79,7 +88,7 @@ const SideBar = ({
             <li className={style["side-bar-item"]} key={type}>
               <Link
                 to={buildQueryString("query", { type })}
-                className={style["side-bar-link"]}
+                className={`${style["side-bar-link"]} ${highlightItem(type)}`}
               >
                 {type}
               </Link>
@@ -92,7 +101,7 @@ const SideBar = ({
         <li className={style["side-bar-item"]}>
           <Link
             to={buildQueryString("sort", { price: -1 })}
-            className={style["side-bar-link"]}
+            className={`${style["side-bar-link"]} ${highlightItem("-1")}`}
           >
             Ascending
           </Link>
@@ -100,7 +109,7 @@ const SideBar = ({
         <li className={style["side-bar-item"]}>
           <Link
             to={buildQueryString("sort", { price: 1 })}
-            className={style["side-bar-link"]}
+            className={`${style["side-bar-link"]} ${highlightItem("1")}`}
           >
             Descending
           </Link>
@@ -121,6 +130,13 @@ const SideBar = ({
           </button>
         </div>
       </form>
+      <button
+        type="button"
+        onClick={handleReset}
+        className={style["side-bar-button"]}
+      >
+        Reset
+      </button>
     </div>
   );
 };
