@@ -21,11 +21,11 @@ describe("AddProperty", () => {
 
     expect(screen.getByRole("form")).toBeInTheDocument();
 
-    const title = screen.getByLabelText(/title:/i);
+    const title = screen.getByLabelText(/title/i);
 
     expect(title).toHaveAttribute("placeholder", "2 bed flat");
 
-    const typeSelect = screen.getByLabelText(/type:/i);
+    const typeSelect = screen.getByLabelText(/type/i);
 
     expect(typeSelect).toHaveDisplayValue(validProps.types[0]);
     validProps.types.forEach((type) => {
@@ -35,21 +35,19 @@ describe("AddProperty", () => {
       expect(option).toHaveAttribute("value", type);
     });
 
-    const bedrooms = screen.getByLabelText(/bedrooms:/i);
+    const bedrooms = screen.getByLabelText(/bedrooms/i);
 
     expect(bedrooms).toHaveAttribute("type", "number");
-    expect(bedrooms).toHaveDisplayValue("1");
-    expect(bedrooms).toHaveAttribute("min", "1");
-    expect(bedrooms).toHaveAttribute("max", "9");
+    expect(bedrooms).toHaveDisplayValue("0");
+    expect(bedrooms).toHaveAttribute("min", "0");
 
     const bathrooms = screen.getByLabelText(/bathrooms/i);
 
     expect(bathrooms).toHaveAttribute("type", "number");
-    expect(bathrooms).toHaveDisplayValue("1");
-    expect(bathrooms).toHaveAttribute("min", "1");
-    expect(bathrooms).toHaveAttribute("max", "9");
+    expect(bathrooms).toHaveDisplayValue("0");
+    expect(bathrooms).toHaveAttribute("min", "0");
 
-    const price = screen.getByLabelText(/price:/i);
+    const price = screen.getByLabelText(/price/i);
 
     expect(price).toHaveAttribute("type", "number");
     expect(price).toHaveDisplayValue("0");
@@ -70,6 +68,6 @@ describe("AddProperty", () => {
     const email = screen.getByLabelText(/email/i);
 
     expect(email).toHaveAttribute("type", "email");
-    expect(email).toHaveAttribute("placeholder", "perry.baran@email.com");
+    expect(email).toHaveAttribute("placeholder", "fake.email@example.com");
   });
 });

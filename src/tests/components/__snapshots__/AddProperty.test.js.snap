@@ -7,27 +7,33 @@ exports[`AddProperty snapshot 1`] = `
   >
     <form
       aria-label="form"
-      class="form"
+      class="add-property-form"
     >
       <label
-        class="label"
+        class="add-property-label"
         for="title"
       >
-        Title:
+        <span>
+          Title
+        </span>
         <input
-          class="input"
+          class="add-property-input"
           id="title"
           name="title"
           placeholder="2 bed flat"
+          required=""
           value=""
         />
       </label>
       <label
+        class="add-property-label"
         for="type"
       >
-        Type:
+        <span>
+          Type
+        </span>
         <select
-          class="input"
+          class="add-property-select"
           id="type"
           name="type"
         >
@@ -43,58 +49,71 @@ exports[`AddProperty snapshot 1`] = `
           </option>
         </select>
       </label>
-      <div
-        class="rooms"
-      >
-        <label
-          for="bedrooms"
-        >
-          Bedrooms:
-          <input
-            class="number"
-            id="bedrooms"
-            max="9"
-            min="1"
-            name="bedrooms"
-            type="number"
-            value="1"
-          />
-        </label>
-        <label
-          for="bathrooms"
-        >
-          Bathrooms:
-          <input
-            class="number"
-            id="bathrooms"
-            max="9"
-            min="1"
-            name="bathrooms"
-            type="number"
-            value="1"
-          />
-        </label>
-      </div>
       <label
-        for="price"
+        class="add-property-label"
+        for="bedrooms"
       >
-        Price:
+        <span>
+          Bedrooms
+        </span>
         <input
-          class="input"
-          id="price"
+          class="add-property-input"
+          id="bedrooms"
           min="0"
-          name="price"
-          step="any"
+          name="bedrooms"
           type="number"
           value="0"
         />
       </label>
       <label
+        class="add-property-label"
+        for="bathrooms"
+      >
+        <span>
+          Bathrooms
+        </span>
+        <input
+          class="add-property-input"
+          id="bathrooms"
+          min="0"
+          name="bathrooms"
+          type="number"
+          value="0"
+        />
+      </label>
+      <label
+        class="add-property-label"
+        for="price"
+      >
+        <span>
+          Price
+        </span>
+        <div
+          class="add-property-price"
+        >
+          <span>
+            £
+          </span>
+          <input
+            id="price"
+            min="0"
+            name="price"
+            required=""
+            step="any"
+            type="number"
+            value="0"
+          />
+        </div>
+      </label>
+      <label
+        class="add-property-label"
         for="city"
       >
-        City:
+        <span>
+          City
+        </span>
         <select
-          class="input"
+          class="add-property-select"
           id="city"
           name="city"
         >
@@ -111,19 +130,24 @@ exports[`AddProperty snapshot 1`] = `
         </select>
       </label>
       <label
+        class="add-property-label"
         for="email"
       >
-        Email:
+        <span>
+          Email
+        </span>
         <input
-          class="input"
+          class="add-property-input"
           id="email"
           name="email"
-          placeholder="perry.baran@email.com"
+          placeholder="fake.email@example.com"
+          required=""
           type="email"
           value=""
         />
       </label>
       <button
+        class="add-property-button"
         type="submit"
       >
         Add

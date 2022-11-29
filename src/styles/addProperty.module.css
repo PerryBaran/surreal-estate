@@ -3,41 +3,94 @@
   justify-content: center;
 }
 
-.form {
+.add-property-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
   margin: 20px;
-  width: 300px;
   padding: 5px;
+  border-radius: 3px;  
+  background-color: var(--almost-white);
+  font-size: 1.2rem;
+}
+
+.add-property-label {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.add-property-label span {
+  display: block;
+  margin-bottom: 2px;  
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.add-property-price > input,
+.add-property-input,
+.add-property-select {
+  all: unset;
+  box-sizing: border-box;
+  padding: 3px;  
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.add-property-input,
+.add-property-select {
+  width: 100%;
   background-color: var(--almost-white);
 }
 
-.form > label {
-  width: 100%;
+.add-property-input,
+.add-property-price,
+.add-property-select {
+  border: 1px solid rgb(136, 136, 136);
+  border-radius: 2px;
+}
+
+.add-property-button {
+  align-self: flex-end;
+  padding: 5px 10px;
+  margin: 5px 0;  
+  border: 2px solid var(--purple);  
+  border-radius: 4px;  
+  background-color: var(--purple);
+  color: var(--almost-white);
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+
+.add-property-button:hover {
+  background-color: var(--almost-white);
+  color: var(--purple)
+}
+
+.add-property-price {
   display: grid;
-  grid-template-columns: 10% 1fr;
-  margin: 10px;
+  grid-template-columns: 15px 1fr;
 }
 
-.input {
-  margin-left: 20px;
-}
-
-.rooms {
-  width: 100%;
+.add-property-price > span {
+  height: 100%;
+  font-size: 1.2rem;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  margin-left: 2px;
 }
 
-.rooms > label {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 10px 0;
+.add-property-input:focus,
+.add-property-price:has(input:focus),
+.add-property-select:focus {
+  border: 2px solid black;
 }
 
-.number {
-  width: fit-content;
-  margin-left: 5px;
+.add-property-input,
+.add-property-price > input {
+  cursor: text;
 }

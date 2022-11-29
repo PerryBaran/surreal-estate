@@ -20,7 +20,7 @@ exports[`Properties falsey userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?query={\\"city\\":\\"Leeds\\"}"
           >
             Leeds
@@ -30,7 +30,7 @@ exports[`Properties falsey userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?query={\\"city\\":\\"Manchester\\"}"
           >
             Manchester
@@ -49,7 +49,7 @@ exports[`Properties falsey userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?query={\\"type\\":\\"Flat\\"}"
           >
             Flat
@@ -59,7 +59,7 @@ exports[`Properties falsey userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?query={\\"type\\":\\"Detached\\"}"
           >
             Detached
@@ -78,7 +78,7 @@ exports[`Properties falsey userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?sort={\\"price\\":-1}"
           >
             Ascending
@@ -88,7 +88,7 @@ exports[`Properties falsey userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?sort={\\"price\\":1}"
           >
             Descending
@@ -125,6 +125,12 @@ exports[`Properties falsey userId snapshot 1`] = `
           </button>
         </div>
       </form>
+      <button
+        class="side-bar-button"
+        type="button"
+      >
+        Reset
+      </button>
     </div>
     <div
       class="properties-main"
@@ -171,7 +177,7 @@ exports[`Properties truthy userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?query={\\"city\\":\\"Leeds\\"}"
           >
             Leeds
@@ -181,7 +187,7 @@ exports[`Properties truthy userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?query={\\"city\\":\\"Manchester\\"}"
           >
             Manchester
@@ -200,7 +206,7 @@ exports[`Properties truthy userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?query={\\"type\\":\\"Flat\\"}"
           >
             Flat
@@ -210,7 +216,7 @@ exports[`Properties truthy userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?query={\\"type\\":\\"Detached\\"}"
           >
             Detached
@@ -229,7 +235,7 @@ exports[`Properties truthy userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?sort={\\"price\\":-1}"
           >
             Ascending
@@ -239,7 +245,7 @@ exports[`Properties truthy userId snapshot 1`] = `
           class="side-bar-item"
         >
           <a
-            class="side-bar-link"
+            class="side-bar-link null"
             href="/?sort={\\"price\\":1}"
           >
             Descending
@@ -276,6 +282,12 @@ exports[`Properties truthy userId snapshot 1`] = `
           </button>
         </div>
       </form>
+      <button
+        class="side-bar-button"
+        type="button"
+      >
+        Reset
+      </button>
     </div>
     <div
       class="properties-main"

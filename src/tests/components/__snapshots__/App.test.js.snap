@@ -108,7 +108,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"city\\":\\"Manchester\\"}"
             >
               Manchester
@@ -118,7 +118,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"city\\":\\"Leeds\\"}"
             >
               Leeds
@@ -128,7 +128,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"city\\":\\"Sheffield\\"}"
             >
               Sheffield
@@ -138,7 +138,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"city\\":\\"Liverpool\\"}"
             >
               Liverpool
@@ -157,7 +157,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"type\\":\\"Flat\\"}"
             >
               Flat
@@ -167,7 +167,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"type\\":\\"Detached\\"}"
             >
               Detached
@@ -177,7 +177,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"type\\":\\"Semi-Detached\\"}"
             >
               Semi-Detached
@@ -187,7 +187,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"type\\":\\"Terraced\\"}"
             >
               Terraced
@@ -197,7 +197,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"type\\":\\"End Of Terrace\\"}"
             >
               End Of Terrace
@@ -207,7 +207,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"type\\":\\"Cottage\\"}"
             >
               Cottage
@@ -217,7 +217,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?query={\\"type\\":\\"Bungalow\\"}"
             >
               Bungalow
@@ -236,7 +236,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?sort={\\"price\\":-1}"
             >
               Ascending
@@ -246,7 +246,7 @@ exports[`renders learn react link 1`] = `
             class="side-bar-item"
           >
             <a
-              class="side-bar-link"
+              class="side-bar-link null"
               href="/?sort={\\"price\\":1}"
             >
               Descending
@@ -283,6 +283,12 @@ exports[`renders learn react link 1`] = `
             </button>
           </div>
         </form>
+        <button
+          class="side-bar-button"
+          type="button"
+        >
+          Reset
+        </button>
       </div>
       <div
         class="properties-main"

@@ -45,7 +45,7 @@ const Properties = ({ options, userId }) => {
   };
 
   const handleFilterFavourites = (value) => {
-    if (value) {
+    if (value !== undefined) {
       setFilterByFavourties(value);
     } else {
       setFilterByFavourties((prev) => !prev);
