@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import style from "../styles/navBar.module.css";
 import logo from "../media/images/logo.png";
@@ -9,18 +9,18 @@ import Logout from "./Logout";
 const NavBar = ({ handleLogin, handleLogout, userId }) => {
   return (
     <div className={style["navbar-container"]}>
+      <img src={logo} alt="Surreal Estate" className={style.logo} />
       <nav className={style.navbar}>
-        <img src={logo} alt="Surreal Estate" className={style.logo} />
         <ul className={style.links}>
           <li className={style.item}>
-            <Link to="/">View Properties</Link>
+            <NavLink to="/">View Properties</NavLink>
           </li>
           <li className={style.item}>
-            <Link to="add-property">Add a Property</Link>
+            <NavLink to="add-property">Add a Property</NavLink>
           </li>
         </ul>
       </nav>
-      <div className={style["google-login"]}>
+      <div className={style.login}>
         {userId ? (
           <Logout onSuccess={handleLogout} />
         ) : (

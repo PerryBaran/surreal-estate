@@ -1,11 +1,11 @@
 .properties {
   display: grid;
-  min-height: calc(100vh - var(--nav-bar-height));
+  grid-template-columns: 200px 1fr;
+  min-height: calc(100vh - var(--nav-bar-height-desktop));
 }
 
 .properties-main {
   margin: 20px;
-  margin-left: calc(var(--side-bar-width) + 20px);
 }
 
 .properties-array {
@@ -13,4 +13,11 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .properties {
+    grid-template-columns: 100px 1fr;
+    min-height: calc(100vh - var(--nav-bar-height-mobile));
+  }
 }

@@ -2,14 +2,14 @@
   display: flex;
   justify-content: space-between;
   background-color: var(--almost-white);
-  position: fixed;
   width: 100%;
   z-index: 10000000;
+  height: var(--nav-bar-height-desktop);
 }
 
 .navbar {
   display: flex;
-  height: var(--nav-bar-height);
+  height: 100%;
   width: 100%;
 }
 
@@ -24,20 +24,29 @@
 
 .item {
   list-style: none;
-  padding: 0 20px;
+  padding: 0 min(20px, 2vw);
+  font-size: min(1rem, 3vw);
+  text-align: center;
 }
 
 .item > a {
   text-decoration: none;
 }
 
-.google-login {
+.login {
   padding: 2px;
   margin: 2px;
   border-radius: 2px;
   background-color: lightgrey;
 }
 
-.google-login > * {
+.login > * {
   height: 100%;
+  width: 110px;
+}
+
+@media (max-width: 600px) {
+  .navbar-container {
+    height: var(--nav-bar-height-mobile);
+  }
 }

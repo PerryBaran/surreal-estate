@@ -10,11 +10,11 @@
 }
 
 :root {
-  --almost-black: black;
-  --almost-white: white;
+  --almost-black: rgb(21, 21, 21);
+  --almost-white: rgb(255, 255, 255);
   --purple: rgb(162, 10, 162);
-  --nav-bar-height: 70px;
-  --side-bar-width: 200px;
+  --nav-bar-height-desktop: 70px;
+  --nav-bar-height-mobile: 50px;
 }
 
 body {

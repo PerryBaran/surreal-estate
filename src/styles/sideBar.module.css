@@ -1,8 +1,10 @@
 .side-bar {
   background-color: white;
   width: var(--side-bar-width);
-  height: calc(100vh - var(--nav-bar-height));
-  position: fixed;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 .side-bar-favourites > input {
@@ -95,4 +97,12 @@
 .side-bar-button:hover {
   background-color: white;
   color: var(--purple);
+}
+
+@media (max-width: 600px) {
+  .side-bar-heading,
+  .side-bar-button,
+  .side-bar-link {
+    font-size: 0.8rem;
+  }
 }
