@@ -60,7 +60,8 @@
   height: 100%;
   width: 100%;
   border-radius: 0;
-  border: 1px solid var(--purple);
+  border: 1px solid var(--almost-black);
+  border-right: none;
   padding: 0 3px;
 }
 

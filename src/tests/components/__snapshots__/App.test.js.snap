@@ -34,7 +34,6 @@ exports[`renders learn react link 1`] = `
             class="item"
           >
             <a
-              class=""
               href="/add-property"
             >
               Add a Property

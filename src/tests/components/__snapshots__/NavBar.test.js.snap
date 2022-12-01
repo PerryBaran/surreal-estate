@@ -31,7 +31,6 @@ exports[`NavBar snapshot 1`] = `
           class="item"
         >
           <a
-            class=""
             href="/add-property"
           >
             Add a Property

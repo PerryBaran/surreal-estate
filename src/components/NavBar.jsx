@@ -13,10 +13,20 @@ const NavBar = ({ handleLogin, handleLogout, userId }) => {
       <nav className={style.navbar}>
         <ul className={style.links}>
           <li className={style.item}>
-            <NavLink to="/">View Properties</NavLink>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? style.active : null)}
+            >
+              View Properties
+            </NavLink>
           </li>
           <li className={style.item}>
-            <NavLink to="add-property">Add a Property</NavLink>
+            <NavLink
+              to="add-property"
+              className={({ isActive }) => (isActive ? style.active : null)}
+            >
+              Add a Property
+            </NavLink>
           </li>
         </ul>
       </nav>
