@@ -63,7 +63,7 @@ describe("SideBar", () => {
         HTMLHeadingElement
       );
       expect(screen.getByRole("textbox")).toHaveAttribute("id", "query");
-      expect(screen.getByRole("button")).toHaveAttribute("type", "submit");
+      expect(screen.getByText(/reset/i)).toBeInstanceOf(HTMLButtonElement);
       expect(screen.getByAltText("search")).toHaveAttribute(
         "src",
         "search.png"

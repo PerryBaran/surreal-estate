@@ -21,14 +21,21 @@ const SideBar = ({
     return searchArray.includes(value) ? style.highlight : null;
   };
 
-  const buildQueryString = (operation, valueObj) => {
+  const buildQueryString = (operation, key, value) => {
     const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
+    const currentOperationObj = JSON.parse(
+      currentQueryParams[operation] || "{}"
+    );
+
+    if (currentOperationObj[key] && currentOperationObj[key] === value) {
+      delete currentOperationObj[key];
+    } else {
+      currentOperationObj[key] = value;
+    }
+
     const newQueryParams = {
       ...currentQueryParams,
-      [operation]: JSON.stringify({
-        ...JSON.parse(currentQueryParams[operation] || "{}"),
-        ...valueObj,
-      }),
+      [operation]: JSON.stringify(currentOperationObj),
     };
 
     return qs.stringify(newQueryParams, {
@@ -41,8 +48,8 @@ const SideBar = ({
     e.preventDefault();
     const { value } = queryRef.current;
 
-    const newQueryString = buildQueryString("query", {
-      title: { $regex: value },
+    const newQueryString = buildQueryString("query", "title", {
+      $regex: value,
     });
 
     navigate(newQueryString);
@@ -50,6 +57,7 @@ const SideBar = ({
 
   const handleReset = () => {
     handleFilterFavourites(false);
+    queryRef.current.value = "";
     navigate("/");
   };
 
@@ -72,7 +80,7 @@ const SideBar = ({
           return (
             <li className={style["side-bar-item"]} key={city}>
               <Link
-                to={buildQueryString("query", { city })}
+                to={buildQueryString("query", "city", city)}
                 className={`${style["side-bar-link"]} ${highlightItem(city)}`}
               >
                 {city}
@@ -87,7 +95,7 @@ const SideBar = ({
           return (
             <li className={style["side-bar-item"]} key={type}>
               <Link
-                to={buildQueryString("query", { type })}
+                to={buildQueryString("query", "type", type)}
                 className={`${style["side-bar-link"]} ${highlightItem(type)}`}
               >
                 {type}
@@ -100,7 +108,7 @@ const SideBar = ({
       <ul className={style["side-bar-list"]}>
         <li className={style["side-bar-item"]}>
           <Link
-            to={buildQueryString("sort", { price: -1 })}
+            to={buildQueryString("sort", "price", -1)}
             className={`${style["side-bar-link"]} ${highlightItem("-1")}`}
           >
             Ascending
@@ -108,7 +116,7 @@ const SideBar = ({
         </li>
         <li className={style["side-bar-item"]}>
           <Link
-            to={buildQueryString("sort", { price: 1 })}
+            to={buildQueryString("sort", "price", 1)}
             className={`${style["side-bar-link"]} ${highlightItem("1")}`}
           >
             Descending

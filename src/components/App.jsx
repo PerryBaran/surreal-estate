@@ -47,18 +47,20 @@ const App = () => {
         handleLogout={handleLogout}
         userId={userId}
       />
-      <Routes>
-        <Route
-          path="/"
-          element={<Properties options={options} userId={userId} />}
-        />
-        <Route
-          path="add-property"
-          element={
-            <AddProperty cities={options.cities} types={options.types} />
-          }
-        />
-      </Routes>
+      <div className={style.content}>
+        <Routes>
+          <Route
+            path="/"
+            element={<Properties options={options} userId={userId} />}
+          />
+          <Route
+            path="add-property"
+            element={
+              <AddProperty cities={options.cities} types={options.types} />
+            }
+          />
+        </Routes>
+      </div>
     </div>
   );
 };

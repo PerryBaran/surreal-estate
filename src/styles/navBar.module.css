@@ -2,6 +2,9 @@
   display: flex;
   justify-content: space-between;
   background-color: var(--almost-white);
+  position: fixed;
+  width: 100%;
+  z-index: 10000000;
 }
 
 .navbar {

@@ -1,9 +1,9 @@
 .side-bar {
   background-color: white;
-  width: 100%;
+  width: var(--side-bar-width);
+  height: calc(100vh - var(--nav-bar-height));
+  position: fixed;
 }
-
-
 
 .side-bar-favourites > input {
   margin-left: 10px;

@@ -1,11 +1,11 @@
 .properties {
   display: grid;
-  grid-template-columns: 200px 1fr;
   min-height: calc(100vh - var(--nav-bar-height));
 }
 
 .properties-main {
   margin: 20px;
+  margin-left: calc(var(--side-bar-width) + 20px);
 }
 
 .properties-array {
