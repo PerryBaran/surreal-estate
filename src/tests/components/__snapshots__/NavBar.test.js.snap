@@ -5,14 +5,14 @@ exports[`NavBar snapshot 1`] = `
   <div
     class="navbar-container"
   >
+    <img
+      alt="Surreal Estate"
+      class="logo"
+      src="logo.png"
+    />
     <nav
       class="navbar"
     >
-      <img
-        alt="Surreal Estate"
-        class="logo"
-        src="logo.png"
-      />
       <ul
         class="links"
       >
@@ -20,6 +20,8 @@ exports[`NavBar snapshot 1`] = `
           class="item"
         >
           <a
+            aria-current="page"
+            class="active"
             href="/"
           >
             View Properties
@@ -29,6 +31,7 @@ exports[`NavBar snapshot 1`] = `
           class="item"
         >
           <a
+            class=""
             href="/add-property"
           >
             Add a Property
@@ -37,7 +40,7 @@ exports[`NavBar snapshot 1`] = `
       </ul>
     </nav>
     <div
-      class="google-login"
+      class="login"
     >
       <button
         disabled=""

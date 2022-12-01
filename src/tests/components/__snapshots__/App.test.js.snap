@@ -8,14 +8,14 @@ exports[`renders learn react link 1`] = `
     <div
       class="navbar-container"
     >
+      <img
+        alt="Surreal Estate"
+        class="logo"
+        src="logo.png"
+      />
       <nav
         class="navbar"
       >
-        <img
-          alt="Surreal Estate"
-          class="logo"
-          src="logo.png"
-        />
         <ul
           class="links"
         >
@@ -23,6 +23,8 @@ exports[`renders learn react link 1`] = `
             class="item"
           >
             <a
+              aria-current="page"
+              class="active"
               href="/"
             >
               View Properties
@@ -32,6 +34,7 @@ exports[`renders learn react link 1`] = `
             class="item"
           >
             <a
+              class=""
               href="/add-property"
             >
               Add a Property
@@ -40,7 +43,7 @@ exports[`renders learn react link 1`] = `
         </ul>
       </nav>
       <div
-        class="google-login"
+        class="login"
       >
         <button
           disabled=""
@@ -91,211 +94,215 @@ exports[`renders learn react link 1`] = `
       </div>
     </div>
     <div
-      class="properties"
+      class="content"
     >
       <div
-        class="side-bar"
-      >
-        <h2
-          class="side-bar-heading"
-        >
-          Filter By City
-        </h2>
-        <ul
-          class="side-bar-list"
-        >
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"city\\":\\"Manchester\\"}"
-            >
-              Manchester
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"city\\":\\"Leeds\\"}"
-            >
-              Leeds
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"city\\":\\"Sheffield\\"}"
-            >
-              Sheffield
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"city\\":\\"Liverpool\\"}"
-            >
-              Liverpool
-            </a>
-          </li>
-        </ul>
-        <h2
-          class="side-bar-heading"
-        >
-          Filter By Type
-        </h2>
-        <ul
-          class="side-bar-list"
-        >
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"type\\":\\"Flat\\"}"
-            >
-              Flat
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"type\\":\\"Detached\\"}"
-            >
-              Detached
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"type\\":\\"Semi-Detached\\"}"
-            >
-              Semi-Detached
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"type\\":\\"Terraced\\"}"
-            >
-              Terraced
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"type\\":\\"End Of Terrace\\"}"
-            >
-              End Of Terrace
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"type\\":\\"Cottage\\"}"
-            >
-              Cottage
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?query={\\"type\\":\\"Bungalow\\"}"
-            >
-              Bungalow
-            </a>
-          </li>
-        </ul>
-        <h2
-          class="side-bar-heading"
-        >
-          Sort By Price
-        </h2>
-        <ul
-          class="side-bar-list"
-        >
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?sort={\\"price\\":-1}"
-            >
-              Ascending
-            </a>
-          </li>
-          <li
-            class="side-bar-item"
-          >
-            <a
-              class="side-bar-link null"
-              href="/?sort={\\"price\\":1}"
-            >
-              Descending
-            </a>
-          </li>
-        </ul>
-        <h2
-          class="side-bar-heading"
-        >
-          Search by Title
-        </h2>
-        <form
-          class="side-bar-search-form"
-        >
-          <div
-            class="side-bar-search"
-          >
-            <label
-              for="query"
-            >
-              <input
-                class="side-bar-search-input"
-                id="query"
-              />
-            </label>
-            <button
-              class="side-bar-search-submit"
-              type="submit"
-            >
-              <img
-                alt="search"
-                src="search.png"
-              />
-            </button>
-          </div>
-        </form>
-        <button
-          class="side-bar-button"
-          type="button"
-        >
-          Reset
-        </button>
-      </div>
-      <div
-        class="properties-main"
+        class="properties"
       >
         <div
-          class="properties-array"
-        />
+          class="side-bar"
+        >
+          <h2
+            class="side-bar-heading"
+          >
+            Filter By City
+          </h2>
+          <ul
+            class="side-bar-list"
+          >
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"city\\":\\"Manchester\\"}"
+              >
+                Manchester
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"city\\":\\"Leeds\\"}"
+              >
+                Leeds
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"city\\":\\"Sheffield\\"}"
+              >
+                Sheffield
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"city\\":\\"Liverpool\\"}"
+              >
+                Liverpool
+              </a>
+            </li>
+          </ul>
+          <h2
+            class="side-bar-heading"
+          >
+            Filter By Type
+          </h2>
+          <ul
+            class="side-bar-list"
+          >
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"type\\":\\"Flat\\"}"
+              >
+                Flat
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"type\\":\\"Detached\\"}"
+              >
+                Detached
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"type\\":\\"Semi-Detached\\"}"
+              >
+                Semi-Detached
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"type\\":\\"Terraced\\"}"
+              >
+                Terraced
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"type\\":\\"End Of Terrace\\"}"
+              >
+                End Of Terrace
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"type\\":\\"Cottage\\"}"
+              >
+                Cottage
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?query={\\"type\\":\\"Bungalow\\"}"
+              >
+                Bungalow
+              </a>
+            </li>
+          </ul>
+          <h2
+            class="side-bar-heading"
+          >
+            Sort By Price
+          </h2>
+          <ul
+            class="side-bar-list"
+          >
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?sort={\\"price\\":-1}"
+              >
+                Ascending
+              </a>
+            </li>
+            <li
+              class="side-bar-item"
+            >
+              <a
+                class="side-bar-link null"
+                href="/?sort={\\"price\\":1}"
+              >
+                Descending
+              </a>
+            </li>
+          </ul>
+          <h2
+            class="side-bar-heading"
+          >
+            Search by Title
+          </h2>
+          <form
+            class="side-bar-search-form"
+          >
+            <div
+              class="side-bar-search"
+            >
+              <label
+                for="query"
+              >
+                <input
+                  class="side-bar-search-input"
+                  id="query"
+                />
+              </label>
+              <button
+                class="side-bar-search-submit"
+                type="submit"
+              >
+                <img
+                  alt="search"
+                  src="search.png"
+                />
+              </button>
+            </div>
+          </form>
+          <button
+            class="side-bar-button"
+            type="button"
+          >
+            Reset
+          </button>
+        </div>
+        <div
+          class="properties-main"
+        >
+          <div
+            class="properties-array"
+          />
+        </div>
       </div>
     </div>
   </div>
