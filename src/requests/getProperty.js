@@ -2,7 +2,7 @@
 import axios from "axios";
 import endpoint from "../data/endpoint";
 
-const getProperty = async (setProperties, setAlert, search, userId) => {
+const getProperty = async (setProperties, search, userId) => {
   let propertyAddress = `${endpoint}/PropertyListing`;
   if (search) {
     propertyAddress += search;
@@ -23,12 +23,11 @@ const getProperty = async (setProperties, setAlert, search, userId) => {
       });
     }
     setProperties(propertyData);
-    setAlert("");
   } catch (err) {
     console.error(err);
     setProperties([]);
-    setAlert(
-      "Server error, failed to retrieve properties. Please try again later."
+    throw new Error(
+      "Server Error, failed to retrieve properties. Please try again later."
     );
   }
 };

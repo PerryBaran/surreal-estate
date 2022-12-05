@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import css from "../styles/addProperty.module.css";
 import postProperty from "../requests/postProperty";
 import Alert from "./Alert";
+import Loader from "./Loader";
 
 const AddProperty = ({ cities, types }) => {
   const EMAIL_REGEX = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
@@ -23,13 +24,11 @@ const AddProperty = ({ cities, types }) => {
   };
   const [formFields, setFormFields] = useState(initialState.form);
   const [alert, setAlert] = useState(initialState.alert);
+  const [loading, setLoading] = useState(false);
 
-  const handleResetForm = () => {
-    setFormFields(initialState.form);
-  };
-
-  const handleAddProperty = (e) => {
+  const handleAddProperty = async (e) => {
     e.preventDefault();
+    setAlert("");
     if (!formFields.title) {
       setAlert({
         message: "Please provide a valid title.",
@@ -46,7 +45,22 @@ const AddProperty = ({ cities, types }) => {
         isSuccessful: false,
       });
     } else {
-      postProperty(formFields, setAlert, handleResetForm);
+      setLoading(true);
+      try {
+        await postProperty(formFields);
+        setAlert({
+          message: "Property added.",
+          isSuccessful: true,
+        });
+        setFormFields(initialState.form);
+      } catch ({ message }) {
+        setAlert({
+          message,
+          isSuccessful: false,
+        });
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -78,6 +92,7 @@ const AddProperty = ({ cities, types }) => {
         className={css["add-property__form"]}
         aria-label="form"
       >
+        <Loader loading={loading} size={20}/>
         <Alert message={alert.message} success={alert.isSuccessful} />
         <label htmlFor="title" className={css["add-property__label"]}>
           <span>Title</span>

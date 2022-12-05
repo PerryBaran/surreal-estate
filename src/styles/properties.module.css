@@ -8,7 +8,11 @@
   margin: 20px;
 }
 
-.properties__cards {
+.properties__main__alert {
+  margin-bottom: 10px;
+}
+
+.properties__main__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

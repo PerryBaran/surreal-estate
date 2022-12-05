@@ -8,6 +8,7 @@ import getProperty from "../requests/getProperty";
 import PropertyCard from "./PropertyCard";
 import Alert from "./Alert";
 import SideBar from "./SideBar";
+import Loader from "./Loader";
 import postFavourite from "../requests/postFavourite";
 import deleteFavourite from "../requests/deleteFavourte";
 
@@ -15,10 +16,21 @@ const Properties = ({ options, userId }) => {
   const [properties, setProperties] = useState([]);
   const [alert, setAlert] = useState("");
   const [filterByFavourites, setFilterByFavourties] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { search } = useLocation();
 
   useDidMountEffect(() => {
-    getProperty(setProperties, setAlert, search, userId);
+    (async () => {
+      setLoading(true);
+      setAlert("");
+      try {
+        await getProperty(setProperties, search, userId);
+      } catch ({ message }) {
+        setAlert(message);
+      } finally {
+        setLoading(false);
+      }
+    })();
   }, [search, userId]);
 
   const handleSaveProperty = async (propertyId) => {
@@ -27,13 +39,29 @@ const Properties = ({ options, userId }) => {
       fbUserId: userId,
     };
 
-    await postFavourite(propertyInfo, setAlert);
-    getProperty(setProperties, setAlert, search, userId);
+    setLoading(true);
+    setAlert("");
+    try {
+      await postFavourite(propertyInfo);
+      await getProperty(setProperties, search, userId);
+    } catch ({ message }) {
+      setAlert(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleRemoveFavourite = async (favouriteId) => {
-    await deleteFavourite(favouriteId, setAlert);
-    getProperty(setProperties, setAlert, search, userId);
+    setLoading(true);
+    setAlert("");
+    try {
+      await deleteFavourite(favouriteId);
+      await getProperty(setProperties, search, userId);
+    } catch ({ message }) {
+      setAlert(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleFilterFavourites = (value) => {
@@ -54,8 +82,11 @@ const Properties = ({ options, userId }) => {
         userId={userId}
       />
       <div className={css.properties__main}>
-        <Alert message={alert} />
-        <div className={css.properties__cards}>
+        <div className={loading || alert ? css.properties__main__alert : null}>
+          <Loader loading={loading} size={50} />
+          <Alert message={alert} />
+        </div>
+        <div className={css.properties__main__cards}>
           {properties.map((property) => {
             if (
               !filterByFavourites ||

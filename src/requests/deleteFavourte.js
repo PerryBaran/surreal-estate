@@ -2,16 +2,15 @@
 import axios from "axios";
 import endpoint from "../data/endpoint";
 
-const deleteFavourite = async (favouriteId, setAlert) => {
+const deleteFavourite = async (favouriteId) => {
   const address = `${endpoint}/Favourite/${favouriteId}`;
 
   try {
     await axios.delete(address);
-    setAlert("");
   } catch (err) {
     console.error(err);
-    setAlert(
-      "Server error, failed to remove favourite. Please try again later."
+    throw new Error(
+      "Server Error, failed to delete favourite. Please try again later."
     );
   }
 };

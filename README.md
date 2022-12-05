@@ -27,6 +27,7 @@ Created as part of the Manchester Codes full-stack web development boot-camp.
 - [qs](https://www.npmjs.com/package/qs)
 - [gapi-script](https://www.npmjs.com/package/gapi-script)
 - [react-google-login](https://www.npmjs.com/package/react-google-login)
+- [react-spinners](https://www.npmjs.com/package/react-spinners)
 
 ### Dev Dependencies
 
