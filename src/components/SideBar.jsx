@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import qs from "qs";
-import style from "../styles/sideBar.module.css";
+import css from "../styles/sideBar.module.css";
 import { search as searchIcon } from "../media/icons";
 
 const SideBar = ({
@@ -18,7 +18,7 @@ const SideBar = ({
 
   const highlightItem = (value) => {
     const searchArray = search.split(/[%2:}]+/i);
-    return searchArray.includes(value) ? style.highlight : null;
+    return searchArray.includes(value) ? css["side-bar__highlight"] : null;
   };
 
   const buildQueryString = (operation, key, value) => {
@@ -62,10 +62,10 @@ const SideBar = ({
   };
 
   return (
-    <div className={style["side-bar"]}>
+    <div className={css["side-bar"]}>
       {userId && (
-        <label htmlFor="favourites" className={style["side-bar-favourites"]}>
-          <h2 className={style["side-bar-heading"]}>Filter By Favourites</h2>
+        <label htmlFor="favourites" className={css["side-bar__favourites"]}>
+          <h2 className={css["side-bar__heading"]}>Filter By Favourites</h2>
           <input
             type="checkbox"
             id="favourites"
@@ -74,14 +74,14 @@ const SideBar = ({
           />
         </label>
       )}
-      <h2 className={style["side-bar-heading"]}>Filter By City</h2>
-      <ul className={style["side-bar-list"]}>
+      <h2 className={css["side-bar__heading"]}>Filter By City</h2>
+      <ul>
         {cities.map((city) => {
           return (
-            <li className={style["side-bar-item"]} key={city}>
+            <li key={city}>
               <Link
                 to={buildQueryString("query", "city", city)}
-                className={`${style["side-bar-link"]} ${highlightItem(city)}`}
+                className={`${css["side-bar__link"]} ${highlightItem(city)}`}
               >
                 {city}
               </Link>
@@ -89,14 +89,14 @@ const SideBar = ({
           );
         })}
       </ul>
-      <h2 className={style["side-bar-heading"]}>Filter By Type</h2>
-      <ul className={style["side-bar-list"]}>
+      <h2 className={css["side-bar__heading"]}>Filter By Type</h2>
+      <ul>
         {types.map((type) => {
           return (
-            <li className={style["side-bar-item"]} key={type}>
+            <li key={type}>
               <Link
                 to={buildQueryString("query", "type", type)}
-                className={`${style["side-bar-link"]} ${highlightItem(type)}`}
+                className={`${css["side-bar__link"]} ${highlightItem(type)}`}
               >
                 {type}
               </Link>
@@ -104,44 +104,44 @@ const SideBar = ({
           );
         })}
       </ul>
-      <h2 className={style["side-bar-heading"]}>Sort By Price</h2>
-      <ul className={style["side-bar-list"]}>
-        <li className={style["side-bar-item"]}>
+      <h2 className={css["side-bar__heading"]}>Sort By Price</h2>
+      <ul>
+        <li>
           <Link
             to={buildQueryString("sort", "price", -1)}
-            className={`${style["side-bar-link"]} ${highlightItem("-1")}`}
+            className={`${css["side-bar__link"]} ${highlightItem("-1")}`}
           >
             Ascending
           </Link>
         </li>
-        <li className={style["side-bar-item"]}>
+        <li>
           <Link
             to={buildQueryString("sort", "price", 1)}
-            className={`${style["side-bar-link"]} ${highlightItem("1")}`}
+            className={`${css["side-bar__link"]} ${highlightItem("1")}`}
           >
             Descending
           </Link>
         </li>
       </ul>
-      <h2 className={style["side-bar-heading"]}>Search by Title</h2>
-      <form onSubmit={handleSearch} className={style["side-bar-search-form"]}>
-        <div className={style["side-bar-search"]}>
-          <label htmlFor="query">
-            <input
-              id="query"
-              ref={queryRef}
-              className={style["side-bar-search-input"]}
-            />
-          </label>
-          <button type="submit" className={style["side-bar-search-submit"]}>
-            <img alt="search" src={searchIcon} />
-          </button>
-        </div>
-      </form>
+      <h2 className={css["side-bar__heading"]}>Search by Title</h2>
+      <div className={css["side-bar__search"]}>
+        <input
+          id="query"
+          ref={queryRef}
+          className={css["side-bar__search__input"]}
+        />
+        <button
+          type="submit"
+          className={css["side-bar__search__submit"]}
+          onClick={handleSearch}
+        >
+          <img alt="search" src={searchIcon} />
+        </button>
+      </div>
       <button
         type="button"
         onClick={handleReset}
-        className={style["side-bar-button"]}
+        className={css["side-bar__reset"]}
       >
         Reset
       </button>

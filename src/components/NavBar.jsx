@@ -1,36 +1,40 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import style from "../styles/navBar.module.css";
+import css from "../styles/navBar.module.css";
 import logo from "../media/images/logo.png";
 import Login from "./Login";
 import Logout from "./Logout";
 
 const NavBar = ({ handleLogin, handleLogout, userId }) => {
   return (
-    <div className={style["navbar-container"]}>
-      <img src={logo} alt="Surreal Estate" className={style.logo} />
-      <nav className={style.navbar}>
-        <ul className={style.links}>
-          <li className={style.item}>
+    <div className={css["nav-bar"]}>
+      <img src={logo} alt="Surreal Estate" className={css["nav-bar__logo"]} />
+      <nav className={css["nav-bar__nav"]}>
+        <ul className={css["nav-bar__list"]}>
+          <li className={css["nav-bar__item"]}>
             <NavLink
               to="/"
-              className={({ isActive }) => (isActive ? style.active : null)}
+              className={({ isActive }) =>
+                isActive ? css["nav-bar__link--active"] : null
+              }
             >
               View Properties
             </NavLink>
           </li>
-          <li className={style.item}>
+          <li className={css["nav-bar__item"]}>
             <NavLink
               to="add-property"
-              className={({ isActive }) => (isActive ? style.active : null)}
+              className={({ isActive }) =>
+                isActive ? css["nav-bar__link--active"] : null
+              }
             >
               Add a Property
             </NavLink>
           </li>
         </ul>
       </nav>
-      <div className={style.login}>
+      <div className={css["nav-bar__login"]}>
         {userId ? (
           <Logout onSuccess={handleLogout} />
         ) : (

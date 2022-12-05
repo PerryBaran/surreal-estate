@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import style from "../styles/addProperty.module.css";
+import css from "../styles/addProperty.module.css";
 import postProperty from "../requests/postProperty";
 import Alert from "./Alert";
 
@@ -52,7 +51,6 @@ const AddProperty = ({ cities, types }) => {
           isSuccessful: true,
         });
       } catch (err) {
-        console.error(err);
         setAlert({
           message: "Server Error, please try again.",
           isSuccessful: false,
@@ -73,7 +71,8 @@ const AddProperty = ({ cities, types }) => {
   const handlePriceChange = (e) => {
     e.preventDefault();
     const { value, name } = e.target;
-    const valueAsCurrency = Number(value.match(/[0-9]*[.]{0,1}[0-9]{0,2}/s)[0]);
+    const currencyRegex = /[0-9]*[.]{0,1}[0-9]{0,2}/s;
+    const valueAsCurrency = Number(value.match(currencyRegex)[0]);
 
     setFormFields({
       ...formFields,
@@ -82,14 +81,14 @@ const AddProperty = ({ cities, types }) => {
   };
 
   return (
-    <div className={style["add-property"]}>
+    <div className={css["add-property"]}>
       <form
         onSubmit={handleAddProperty}
-        className={style["add-property-form"]}
+        className={css["add-property__form"]}
         aria-label="form"
       >
         <Alert message={alert.message} success={alert.isSuccessful} />
-        <label htmlFor="title" className={style["add-property-label"]}>
+        <label htmlFor="title" className={css["add-property__label"]}>
           <span>Title</span>
           <input
             id="title"
@@ -97,18 +96,18 @@ const AddProperty = ({ cities, types }) => {
             value={formFields.title}
             onChange={handleFieldChange}
             placeholder="2 bed flat"
-            className={style["add-property-input"]}
+            className={css["add-property__input"]}
             required
           />
         </label>
-        <label htmlFor="type" className={style["add-property-label"]}>
+        <label htmlFor="type" className={css["add-property__label"]}>
           <span>Type</span>
           <select
             id="type"
             name="type"
             value={formFields.type}
             onChange={handleFieldChange}
-            className={style["add-property-select"]}
+            className={css["add-property__select"]}
           >
             {types.map((type) => {
               return (
@@ -119,7 +118,7 @@ const AddProperty = ({ cities, types }) => {
             })}
           </select>
         </label>
-        <label htmlFor="bedrooms" className={style["add-property-label"]}>
+        <label htmlFor="bedrooms" className={css["add-property__label"]}>
           <span>Bedrooms</span>
           <input
             type="number"
@@ -128,10 +127,10 @@ const AddProperty = ({ cities, types }) => {
             value={formFields.bedrooms}
             min={0}
             onChange={handleFieldChange}
-            className={style["add-property-input"]}
+            className={css["add-property__input"]}
           />
         </label>
-        <label htmlFor="bathrooms" className={style["add-property-label"]}>
+        <label htmlFor="bathrooms" className={css["add-property__label"]}>
           <span>Bathrooms</span>
           <input
             type="number"
@@ -140,12 +139,12 @@ const AddProperty = ({ cities, types }) => {
             value={formFields.bathrooms}
             min={0}
             onChange={handleFieldChange}
-            className={style["add-property-input"]}
+            className={css["add-property__input"]}
           />
         </label>
-        <label htmlFor="price" className={style["add-property-label"]}>
+        <label htmlFor="price" className={css["add-property__label"]}>
           <span>Price</span>
-          <div className={style["add-property-price"]}>
+          <div className={css["add-property__price"]}>
             <span>£</span>
             <input
               type="number"
@@ -159,14 +158,14 @@ const AddProperty = ({ cities, types }) => {
             />
           </div>
         </label>
-        <label htmlFor="city" className={style["add-property-label"]}>
+        <label htmlFor="city" className={css["add-property__label"]}>
           <span>City</span>
           <select
             id="city"
             name="city"
             value={formFields.city}
             onChange={handleFieldChange}
-            className={style["add-property-select"]}
+            className={css["add-property__select"]}
           >
             {cities.map((city) => {
               return (
@@ -177,7 +176,7 @@ const AddProperty = ({ cities, types }) => {
             })}
           </select>
         </label>
-        <label htmlFor="email" className={style["add-property-label"]}>
+        <label htmlFor="email" className={css["add-property__label"]}>
           <span>Email</span>
           <input
             type="email"
@@ -186,11 +185,11 @@ const AddProperty = ({ cities, types }) => {
             value={formFields.email}
             onChange={handleFieldChange}
             placeholder="fake.email@example.com"
-            className={style["add-property-input"]}
+            className={css["add-property__input"]}
             required
           />
         </label>
-        <button type="submit" className={style["add-property-button"]}>
+        <button type="submit" className={css["add-property__submit"]}>
           Add
         </button>
       </form>

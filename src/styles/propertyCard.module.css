@@ -9,42 +9,33 @@
   gap: 10px;
 }
 
-.property-card-image {
+.property-card__image {
   width: 100%;
 }
 
-.property-card-price {
-  font-size: 1.4rem;
-}
-
-.property-card-icon {
-  aspect-ratio: 1;
-  width: 30px;
-}
-
-.property-card-title {
-  text-align: center;
-}
-
-.property-card-rooms {
+.property-card__rooms {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
 }
 
-.property-card-room {
+.property-card__rooms__room {
   display: flex;
   align-items: center;
 }
 
-.property-card-room > p {
+.property-card__rooms__room > p {
   font-size: 1.2rem;
   margin: 0 5px;
   font-weight: 500;
 }
 
-.property-card-email {
+.property-card__price {
+  font-size: 1.4rem;
+}
+
+.property-card__email {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,14 +47,18 @@
   border-radius: 3px;
 }
 
-
-.property-card-email > p {
+.property-card__email > p {
   color: white;
   font-weight: 500;
   font-size: 1rem;
 }
 
-.property-card-email > img {
+.property-card__icon {
+  aspect-ratio: 1;
+  width: 30px;
+}
+
+.property-card__email > .property-card__icon {
   filter: invert();
 }
 

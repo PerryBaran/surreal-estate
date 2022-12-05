@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { gapi } from "gapi-script";
-import style from "../styles/app.module.css";
 import NavBar from "./NavBar";
 import Properties from "./Properties";
 import AddProperty from "./AddProperty";
@@ -41,13 +40,13 @@ const App = () => {
   });
 
   return (
-    <div className={style.app}>
+    <div>
       <NavBar
         handleLogin={handleLogin}
         handleLogout={handleLogout}
         userId={userId}
       />
-      <div className={style.content}>
+      <div>
         <Routes>
           <Route
             path="/"

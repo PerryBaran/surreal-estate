@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import style from "../styles/alert.module.css";
+import css from "../styles/alert.module.css";
 
 const Alert = ({ message, success }) => {
   if (!message) return null;
 
   return (
-    <p className={`${style.alert} ${success ? style.success : style.error}`}>
+    <p className={`${css.alert} ${success ? css.success : css.error}`}>
       {message}
     </p>
   );

@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.add-property-form {
+.add-property__form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,43 +16,65 @@
   font-size: 1.2rem;
 }
 
-.add-property-label {
-  display: block;
+.add-property__label {
   width: 100%;
   margin: 5px 0;
 }
 
-.add-property-label span {
+.add-property__label > span {
   display: block;
   margin-bottom: 2px;  
   font-size: 1.5rem;
   font-weight: 500;
 }
 
-.add-property-price > input,
-.add-property-input,
-.add-property-select {
+.add-property__input,
+.add-property__select,
+.add-property__price > input {
   all: unset;
   box-sizing: border-box;
   padding: 3px;  
   font-size: 1.2rem;
-  cursor: pointer;
 }
 
-.add-property-input,
-.add-property-select {
+.add-property__input,
+.add-property__select,
+.add-property__price {
   width: 100%;
+  border: 1px solid rgb(136, 136, 136);
+  border-radius: 2px;
   background-color: var(--almost-white);
 }
 
-.add-property-input,
-.add-property-price,
-.add-property-select {
-  border: 1px solid rgb(136, 136, 136);
-  border-radius: 2px;
+.add-property__input,
+.add-property__price > input {
+  cursor: text;
 }
 
-.add-property-button {
+.add-property__select {
+  cursor: pointer;
+}
+
+.add-property__price {
+  display: grid;
+  grid-template-columns: 15px 1fr;
+}
+
+.add-property__price > span {
+  height: 100%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  margin-left: 2px;
+}
+
+.add-property__input:focus,
+.add-property__price:has(input:focus),
+.add-property__select:focus {
+  border: 2px solid black;
+}
+
+.add-property__submit {
   align-self: flex-end;
   padding: 5px 10px;
   margin: 5px 0;  
@@ -66,31 +88,7 @@
   cursor: pointer;
 }
 
-.add-property-button:hover {
+.add-property__submit:hover {
   background-color: var(--almost-white);
   color: var(--purple)
-}
-
-.add-property-price {
-  display: grid;
-  grid-template-columns: 15px 1fr;
-}
-
-.add-property-price > span {
-  height: 100%;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  margin-left: 2px;
-}
-
-.add-property-input:focus,
-.add-property-price:has(input:focus),
-.add-property-select:focus {
-  border: 2px solid black;
-}
-
-.add-property-input,
-.add-property-price > input {
-  cursor: text;
 }

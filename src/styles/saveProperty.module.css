@@ -21,7 +21,7 @@
 
 .save-property:hover {
   background-color: var(--purple);
-  color: white;
+  color: var(--almost-white);
 }
 
 .remove-property {
@@ -31,7 +31,7 @@
 
 .remove-property:hover {
   background-color: red;
-  border: red;
+  border: none;
   color: var(--almost-white);
 }
 

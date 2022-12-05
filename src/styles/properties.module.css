@@ -4,11 +4,11 @@
   min-height: calc(100vh - var(--nav-bar-height-desktop));
 }
 
-.properties-main {
+.properties__main {
   margin: 20px;
 }
 
-.properties-array {
+.properties__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import useDidMountEffect from "../hooks/useDidMountEffect";
-import style from "../styles/properties.module.css";
+import css from "../styles/properties.module.css";
 import getProperty from "../requests/getProperty";
 import PropertyCard from "./PropertyCard";
 import Alert from "./Alert";
@@ -53,7 +53,7 @@ const Properties = ({ options, userId }) => {
   };
 
   return (
-    <div className={style.properties}>
+    <div className={css.properties}>
       <SideBar
         cities={options.cities}
         types={options.types}
@@ -61,9 +61,9 @@ const Properties = ({ options, userId }) => {
         handleFilterFavourites={handleFilterFavourites}
         userId={userId}
       />
-      <div className={style["properties-main"]}>
+      <div className={css.properties__main}>
         <Alert message={alert} />
-        <div className={style["properties-array"]}>
+        <div className={css.properties__cards}>
           {properties.map((property) => {
             if (
               !filterByFavourites ||
