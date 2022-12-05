@@ -5,6 +5,7 @@ import postProperty from "../requests/postProperty";
 import Alert from "./Alert";
 
 const AddProperty = ({ cities, types }) => {
+  const EMAIL_REGEX = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
   const initialState = {
     form: {
       title: "",
@@ -23,7 +24,11 @@ const AddProperty = ({ cities, types }) => {
   const [formFields, setFormFields] = useState(initialState.form);
   const [alert, setAlert] = useState(initialState.alert);
 
-  const handleAddProperty = async (e) => {
+  const handleResetForm = () => {
+    setFormFields(initialState.form);
+  };
+
+  const handleAddProperty = (e) => {
     e.preventDefault();
     if (!formFields.title) {
       setAlert({
@@ -32,30 +37,16 @@ const AddProperty = ({ cities, types }) => {
       });
     } else if (!formFields.price) {
       setAlert({
-        message: "Price cannot be 0.",
+        message: "Price must be more than 0.",
         isSuccessful: false,
       });
-    } else if (
-      !formFields.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
-    ) {
+    } else if (!formFields.email.match(EMAIL_REGEX)) {
       setAlert({
         message: "Please provide a valid email.",
         isSuccessful: false,
       });
     } else {
-      try {
-        await postProperty(formFields);
-        setFormFields(initialState.form);
-        setAlert({
-          message: "Property added.",
-          isSuccessful: true,
-        });
-      } catch (err) {
-        setAlert({
-          message: "Server Error, please try again.",
-          isSuccessful: false,
-        });
-      }
+      postProperty(formFields, setAlert, handleResetForm);
     }
   };
 

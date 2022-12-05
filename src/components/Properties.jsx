@@ -27,21 +27,13 @@ const Properties = ({ options, userId }) => {
       fbUserId: userId,
     };
 
-    try {
-      await postFavourite(propertyInfo);
-      getProperty(setProperties, setAlert, search, userId);
-    } catch (err) {
-      console.error(err);
-    }
+    await postFavourite(propertyInfo, setAlert);
+    getProperty(setProperties, setAlert, search, userId);
   };
 
   const handleRemoveFavourite = async (favouriteId) => {
-    try {
-      await deleteFavourite(favouriteId);
-      getProperty(setProperties, setAlert, search, userId);
-    } catch (err) {
-      console.error(err);
-    }
+    await deleteFavourite(favouriteId, setAlert);
+    getProperty(setProperties, setAlert, search, userId);
   };
 
   const handleFilterFavourites = (value) => {

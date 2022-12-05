@@ -23,11 +23,12 @@ const getProperty = async (setProperties, setAlert, search, userId) => {
       });
     }
     setProperties(propertyData);
-    setAlert("");
   } catch (err) {
     console.error(err);
     setProperties([]);
-    setAlert("Server Error, please try again later.");
+    setAlert(
+      "Server error, failed to retrieve properties. Please try again later."
+    );
   }
 };
 
