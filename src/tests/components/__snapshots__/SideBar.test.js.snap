@@ -105,3 +105,123 @@ exports[`SideBar falsey userId snapshot 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`SideBar truthy userId snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="side-bar"
+  >
+    <label
+      class="side-bar__favourites"
+      for="favourites"
+    >
+      <h2
+        class="side-bar__heading"
+      >
+        Filter By Favourites
+      </h2>
+      <input
+        id="favourites"
+        type="checkbox"
+      />
+    </label>
+    <h2
+      class="side-bar__heading"
+    >
+      Filter By City
+    </h2>
+    <ul>
+      <li>
+        <a
+          class="side-bar__link null"
+          href="/?query={\\"city\\":\\"Leeds\\"}"
+        >
+          Leeds
+        </a>
+      </li>
+      <li>
+        <a
+          class="side-bar__link null"
+          href="/?query={\\"city\\":\\"Manchester\\"}"
+        >
+          Manchester
+        </a>
+      </li>
+    </ul>
+    <h2
+      class="side-bar__heading"
+    >
+      Filter By Type
+    </h2>
+    <ul>
+      <li>
+        <a
+          class="side-bar__link null"
+          href="/?query={\\"type\\":\\"Flat\\"}"
+        >
+          Flat
+        </a>
+      </li>
+      <li>
+        <a
+          class="side-bar__link null"
+          href="/?query={\\"type\\":\\"Detached\\"}"
+        >
+          Detached
+        </a>
+      </li>
+    </ul>
+    <h2
+      class="side-bar__heading"
+    >
+      Sort By Price
+    </h2>
+    <ul>
+      <li>
+        <a
+          class="side-bar__link null"
+          href="/?sort={\\"price\\":-1}"
+        >
+          Ascending
+        </a>
+      </li>
+      <li>
+        <a
+          class="side-bar__link null"
+          href="/?sort={\\"price\\":1}"
+        >
+          Descending
+        </a>
+      </li>
+    </ul>
+    <h2
+      class="side-bar__heading"
+    >
+      Search by Title
+    </h2>
+    <div
+      class="side-bar__search"
+    >
+      <input
+        class="side-bar__search__input"
+        id="query"
+      />
+      <button
+        class="side-bar__search__submit"
+        type="submit"
+      >
+        <img
+          alt="search"
+          src="search.png"
+        />
+      </button>
+    </div>
+    <button
+      class="side-bar__reset"
+      type="button"
+    >
+      Reset
+    </button>
+  </div>
+</DocumentFragment>
+`;

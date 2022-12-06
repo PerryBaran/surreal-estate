@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import SideBar from "../../components/SideBar";
 
 const RenderWithRouter = (props) => {
@@ -30,6 +30,9 @@ describe("SideBar", () => {
     test("renders correctly", () => {
       render(<RenderWithRouter {...validProps} />);
 
+      expect(
+        screen.queryByText(/fitler by favourites/i)
+      ).not.toBeInTheDocument();
       expect(screen.getByText(/filter by city/i)).toBeInstanceOf(
         HTMLHeadingElement
       );
@@ -68,6 +71,63 @@ describe("SideBar", () => {
         "src",
         "search.png"
       );
+    });
+  });
+
+  describe("truthy userId", () => {
+    const validProps = {
+      cities: ["Leeds", "Manchester"],
+      types: ["Flat", "Detached"],
+      userId: "76yhh64b",
+      filterByFavourites: false,
+      handleFilterFavourites: jest.fn(),
+    };
+
+    test("snapshot", () => {
+      const { asFragment } = render(<RenderWithRouter {...validProps} />);
+
+      expect(asFragment()).toMatchSnapshot();
+    });
+
+    test("renders favourite checkbox", () => {
+      render(<RenderWithRouter {...validProps} />);
+
+      expect(screen.getByText(/filter by favourites/i)).toBeInTheDocument();
+    });
+
+    test("clicking links adds and removes from query string", () => {
+      render(<RenderWithRouter {...validProps} />);
+
+      const city = validProps.cities[0];
+      const type = validProps.types[0];
+      const cityLink = screen.getByText(city);
+      const typeLink = screen.getByText(type);
+
+      fireEvent.click(cityLink);
+      expect(typeLink).toHaveAttribute(
+        "href",
+        `/?query={"city":"${city}","type":"${type}"}`
+      );
+      fireEvent.click(cityLink);
+      expect(typeLink).toHaveAttribute("href", `/?query={"type":"${type}"}`);
+    });
+
+    test("reset button", () => {
+      render(<RenderWithRouter {...validProps} />);
+
+      const city = validProps.cities[0];
+      const type = validProps.types[0];
+      const cityLink = screen.getByText(city);
+      const typeLink = screen.getByText(type);
+      const reset = screen.getByText(/reset/i);
+
+      fireEvent.click(cityLink);
+      expect(typeLink).toHaveAttribute(
+        "href",
+        `/?query={"city":"${city}","type":"${type}"}`
+      );
+      fireEvent.click(reset);
+      expect(typeLink).toHaveAttribute("href", `/?query={"type":"${type}"}`);
     });
   });
 });
