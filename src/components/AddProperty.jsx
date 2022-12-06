@@ -92,7 +92,7 @@ const AddProperty = ({ cities, types }) => {
         className={css["add-property__form"]}
         aria-label="form"
       >
-        <Loader loading={loading} size={20}/>
+        <Loader loading={loading} size={20} />
         <Alert message={alert.message} success={alert.isSuccessful} />
         <label htmlFor="title" className={css["add-property__label"]}>
           <span>Title</span>
