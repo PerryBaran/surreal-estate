@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, matchPath } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import NavBar from "../../components/NavBar";
 
@@ -30,7 +30,7 @@ describe("NavBar", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test("content", () => {
+  test("links", () => {
     render(
       <RenderWithRouter
         handleLogin={validProps.handleLogin}
@@ -49,5 +49,32 @@ describe("NavBar", () => {
     expect(links[0]).toHaveAttribute("href", "/");
     expect(links[1]).toHaveTextContent(/add a property/i);
     expect(links[1]).toHaveAttribute("href", "/add-property");
+  });
+
+  test("login rendered when userId is falsey", () => {
+    render(
+      <RenderWithRouter
+        handleLogin={validProps.handleLogin}
+        handleLogout={validProps.handleLogout}
+        userId={validProps.userId}
+      />
+    );
+
+    expect(screen.getByText(/login/i)).toBeInTheDocument();
+    expect(screen.queryByText(/logout/i)).not.toBeInTheDocument();
+  });
+
+  test("logout rendered when userId is truthy", () => {
+    validProps.userId = "truthy";
+    render(
+      <RenderWithRouter
+        handleLogin={validProps.handleLogin}
+        handleLogout={validProps.handleLogout}
+        userId={validProps.userId}
+      />
+    );
+
+    expect(screen.queryByText(/login/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/logout/i)).toBeInTheDocument();
   });
 });
