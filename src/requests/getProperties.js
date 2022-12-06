@@ -2,7 +2,7 @@
 import axios from "axios";
 import endpoint from "../data/endpoint";
 
-const getProperty = async (setProperties, search, userId) => {
+const getProperties = async (setProperties, search, userId) => {
   let propertyAddress = `${endpoint}/PropertyListing`;
   if (search) {
     propertyAddress += search;
@@ -32,4 +32,4 @@ const getProperty = async (setProperties, search, userId) => {
   }
 };
 
-export default getProperty;
+export default getProperties;

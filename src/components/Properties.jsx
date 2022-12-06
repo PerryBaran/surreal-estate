@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import useDidMountEffect from "../hooks/useDidMountEffect";
 import css from "../styles/properties.module.css";
-import getProperty from "../requests/getProperty";
+import getProperties from "../requests/getProperties";
 import PropertyCard from "./PropertyCard";
 import Alert from "./Alert";
 import SideBar from "./SideBar";
@@ -24,7 +24,7 @@ const Properties = ({ options, userId }) => {
       setLoading(true);
       setAlert("");
       try {
-        await getProperty(setProperties, search, userId);
+        await getProperties(setProperties, search, userId);
       } catch ({ message }) {
         setAlert(message);
       } finally {
@@ -43,7 +43,7 @@ const Properties = ({ options, userId }) => {
     setAlert("");
     try {
       await postFavourite(propertyInfo);
-      await getProperty(setProperties, search, userId);
+      await getProperties(setProperties, search, userId);
     } catch ({ message }) {
       setAlert(message);
     } finally {
@@ -56,7 +56,7 @@ const Properties = ({ options, userId }) => {
     setAlert("");
     try {
       await deleteFavourite(favouriteId);
-      await getProperty(setProperties, search, userId);
+      await getProperties(setProperties, search, userId);
     } catch ({ message }) {
       setAlert(message);
     } finally {
