@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import Properties from "../../components/Properties";
+import * as getProperties from "../../requests/getProperties";
 
 const RenderWithRouter = (props) => {
   return (
@@ -34,13 +35,11 @@ describe("Properties", () => {
         city: "city 2",
         email: "fake@email.com",
         _id: "23uhgvdb",
+        favouriteId: "342fdgiu24bngf",
       },
     ],
   };
-
-  beforeEach(() => {
-    jest.spyOn(axios, "get").mockResolvedValue(mockResponse);
-  });
+  jest.spyOn(axios, "get").mockResolvedValue(mockResponse);
 
   describe("falsey userId", () => {
     const validProps = {
@@ -96,6 +95,21 @@ describe("Properties", () => {
       );
 
       expect(asFragment()).toMatchSnapshot();
+    });
+
+    test("alert on request error", () => {
+      const message = "error!";
+      jest.spyOn(getProperties, "default").mockRejectedValue({ message });
+      render(
+        <RenderWithRouter
+          options={validProps.options}
+          userId={validProps.userId}
+        />
+      );
+
+      waitFor(() => {
+        expect(screen.getByText(message)).toBeInTheDocument();
+      });
     });
   });
 });
