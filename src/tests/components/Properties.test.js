@@ -51,23 +51,13 @@ describe("Properties", () => {
     };
 
     test("snapshot", () => {
-      const { asFragment } = render(
-        <RenderWithRouter
-          options={validProps.options}
-          userId={validProps.userId}
-        />
-      );
+      const { asFragment } = render(<RenderWithRouter {...validProps} />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     test("renders properties", () => {
-      render(
-        <RenderWithRouter
-          options={validProps.options}
-          userId={validProps.userId}
-        />
-      );
+      render(<RenderWithRouter {...validProps} />);
 
       waitFor(() => {
         expect(screen.getAllByAltText("property")).toHaveLength(
@@ -87,12 +77,7 @@ describe("Properties", () => {
     };
 
     test("snapshot", () => {
-      const { asFragment } = render(
-        <RenderWithRouter
-          options={validProps.options}
-          userId={validProps.userId}
-        />
-      );
+      const { asFragment } = render(<RenderWithRouter {...validProps} />);
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -100,12 +85,7 @@ describe("Properties", () => {
     test("alert on request error", () => {
       const message = "error!";
       jest.spyOn(getProperties, "default").mockRejectedValue({ message });
-      render(
-        <RenderWithRouter
-          options={validProps.options}
-          userId={validProps.userId}
-        />
-      );
+      render(<RenderWithRouter {...validProps} />);
 
       waitFor(() => {
         expect(screen.getByText(message)).toBeInTheDocument();

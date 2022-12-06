@@ -8,7 +8,7 @@ describe("Login", () => {
   };
 
   test("snapshot", () => {
-    const { asFragment } = render(<Login onSuccess={validProps.onSuccess} />);
+    const { asFragment } = render(<Login {...validProps} />);
 
     expect(asFragment()).toMatchSnapshot();
   });

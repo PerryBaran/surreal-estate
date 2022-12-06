@@ -27,7 +27,7 @@ describe("SideBar", () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
-    test("renders cities", () => {
+    test("renders correctly", () => {
       render(<RenderWithRouter {...validProps} />);
 
       expect(screen.getByText(/filter by city/i)).toBeInstanceOf(

@@ -3,53 +3,39 @@ import { render, screen } from "@testing-library/react";
 import SaveProperty from "../../components/SaveProperty";
 
 describe("SaveProperty", () => {
-  const validProps = {
-    userId: "43ref",
-    _id: "5itfgnf",
-    favouriteId: "845inf",
-    onSaveProperty: jest.fn(),
-    onRemoveProperty: jest.fn(),
-  };
+  describe("falsey userId", () => {
+    const validProps = {
+      userId: "",
+      _id: "5itfgnf",
+      favouriteId: "845inf",
+      onSaveProperty: jest.fn(),
+      onRemoveProperty: jest.fn(),
+    };
 
-  test("falsey userId", () => {
-    const { container } = render(
-      <SaveProperty
-        userId=""
-        _id={validProps._id}
-        favouriteId={validProps.favouriteId}
-        onSaveProperty={validProps.onSaveProperty}
-        onRemoveProperty={validProps.onRemoveProperty}
-      />
-    );
+    test("returns null", () => {
+      const { container } = render(<SaveProperty {...validProps} />);
 
-    expect(container).toBeEmptyDOMElement();
+      expect(container).toBeEmptyDOMElement();
+    });
   });
 
   describe("truthy favouriteId", () => {
+    const validProps = {
+      userId: "43654",
+      _id: "5itfgnf",
+      favouriteId: "845inf",
+      onSaveProperty: jest.fn(),
+      onRemoveProperty: jest.fn(),
+    };
+
     test("snapshot", () => {
-      const { asFragment } = render(
-        <SaveProperty
-          userId={validProps.userId}
-          _id={validProps._id}
-          favouriteId={validProps.favouriteId}
-          onSaveProperty={validProps.onSaveProperty}
-          onRemoveProperty={validProps.onRemoveProperty}
-        />
-      );
+      const { asFragment } = render(<SaveProperty {...validProps} />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     test("renders correctly", () => {
-      render(
-        <SaveProperty
-          userId={validProps.userId}
-          _id={validProps._id}
-          favouriteId={validProps.favouriteId}
-          onSaveProperty={validProps.onSaveProperty}
-          onRemoveProperty={validProps.onRemoveProperty}
-        />
-      );
+      render(<SaveProperty {...validProps} />);
 
       expect(screen.getByText(/saved/i)).toBeInTheDocument();
       expect(screen.queryByText(/^save$/i)).not.toBeInTheDocument();
@@ -57,30 +43,22 @@ describe("SaveProperty", () => {
   });
 
   describe("falsey favouriteId", () => {
+    const validProps = {
+      userId: "43654",
+      _id: "5itfgnf",
+      favouriteId: "",
+      onSaveProperty: jest.fn(),
+      onRemoveProperty: jest.fn(),
+    };
+
     test("snapshot", () => {
-      const { asFragment } = render(
-        <SaveProperty
-          userId={validProps.userId}
-          _id={validProps._id}
-          favouriteId=""
-          onSaveProperty={validProps.onSaveProperty}
-          onRemoveProperty={validProps.onRemoveProperty}
-        />
-      );
+      const { asFragment } = render(<SaveProperty {...validProps} />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     test("renders correctly", () => {
-      render(
-        <SaveProperty
-          userId={validProps.userId}
-          _id={validProps._id}
-          favouriteId=""
-          onSaveProperty={validProps.onSaveProperty}
-          onRemoveProperty={validProps.onRemoveProperty}
-        />
-      );
+      render(<SaveProperty {...validProps} />);
 
       expect(screen.queryByText(/saved/i)).not.toBeInTheDocument();
       expect(screen.getByText(/^save$/i)).toBeInTheDocument();

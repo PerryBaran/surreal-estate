@@ -7,7 +7,7 @@ describe("Alert", () => {
     const validProps = { message: "Error!" };
 
     test("snapshot", () => {
-      const { asFragment } = render(<Alert message={validProps.message} />);
+      const { asFragment } = render(<Alert {...validProps} />);
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -45,13 +45,13 @@ describe("Alert", () => {
     };
 
     test("snapshot", () => {
-      const { asFragment } = render(<Alert message={validProps.message} />);
+      const { asFragment } = render(<Alert {...validProps} />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     test("renders correctly", () => {
-      const { container } = render(<Alert message={validProps.message} />);
+      const { container } = render(<Alert {...validProps} />);
 
       expect(container).toBeEmptyDOMElement();
     });

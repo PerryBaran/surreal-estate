@@ -19,25 +19,13 @@ describe("NavBar", () => {
   };
 
   test("snapshot", () => {
-    const { asFragment } = render(
-      <RenderWithRouter
-        handleLogin={validProps.handleLogin}
-        handleLogout={validProps.handleLogout}
-        userId={validProps.userId}
-      />
-    );
+    const { asFragment } = render(<RenderWithRouter {...validProps} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   test("links", () => {
-    render(
-      <RenderWithRouter
-        handleLogin={validProps.handleLogin}
-        handleLogout={validProps.handleLogout}
-        userId={validProps.userId}
-      />
-    );
+    render(<RenderWithRouter {...validProps} />);
     const links = screen.getAllByRole("link");
 
     expect(screen.getByAltText(/surreal estate/i)).toHaveAttribute(
@@ -52,13 +40,7 @@ describe("NavBar", () => {
   });
 
   test("login rendered when userId is falsey", () => {
-    render(
-      <RenderWithRouter
-        handleLogin={validProps.handleLogin}
-        handleLogout={validProps.handleLogout}
-        userId={validProps.userId}
-      />
-    );
+    render(<RenderWithRouter {...validProps} />);
 
     expect(screen.getByText(/login/i)).toBeInTheDocument();
     expect(screen.queryByText(/logout/i)).not.toBeInTheDocument();
@@ -66,13 +48,7 @@ describe("NavBar", () => {
 
   test("logout rendered when userId is truthy", () => {
     validProps.userId = "truthy";
-    render(
-      <RenderWithRouter
-        handleLogin={validProps.handleLogin}
-        handleLogout={validProps.handleLogout}
-        userId={validProps.userId}
-      />
-    );
+    render(<RenderWithRouter {...validProps} />);
 
     expect(screen.queryByText(/login/i)).not.toBeInTheDocument();
     expect(screen.getByText(/logout/i)).toBeInTheDocument();

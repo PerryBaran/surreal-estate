@@ -15,9 +15,9 @@ const SideBar = ({
   const queryRef = useRef();
   const navigate = useNavigate();
   const { search } = useLocation();
-  const searchArray = search.split(/[%2:}]+/);
 
   const highlightItem = (value) => {
+    const searchArray = search.split(/[%2:}]+/);
     return searchArray.includes(value) ? css["side-bar__highlight"] : null;
   };
 

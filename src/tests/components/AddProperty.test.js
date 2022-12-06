@@ -10,18 +10,14 @@ describe("AddProperty", () => {
   };
 
   test("snapshot", () => {
-    const { asFragment } = render(
-      <AddProperty cities={validProps.cities} types={validProps.types} />
-    );
+    const { asFragment } = render(<AddProperty {...validProps} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   describe("form tests", () => {
     beforeEach(() => {
-      render(
-        <AddProperty cities={validProps.cities} types={validProps.types} />
-      );
+      render(<AddProperty {...validProps} />);
     });
 
     test("content", () => {
@@ -118,9 +114,7 @@ describe("AddProperty", () => {
 
     test("on sucess", () => {
       mockPostProperty.mockResolvedValue();
-      render(
-        <AddProperty cities={validProps.cities} types={validProps.types} />
-      );
+      render(<AddProperty {...validProps} />);
 
       waitFor(() => {
         expect(screen.getByText(/property added/i)).toBeInTheDocument();
@@ -130,10 +124,7 @@ describe("AddProperty", () => {
     test("on error", () => {
       const message = "error";
       mockPostProperty.mockRejectedValue({ message });
-
-      render(
-        <AddProperty cities={validProps.cities} types={validProps.types} />
-      );
+      render(<AddProperty {...validProps} />);
 
       waitFor(() => {
         expect(screen.getByText(message)).toBeInTheDocument();

@@ -9,9 +9,7 @@ describe("Loader", () => {
   };
 
   test("snapshot", () => {
-    const { asFragment } = render(
-      <Loader loading={validProps.loading} size={validProps.size} />
-    );
+    const { asFragment } = render(<Loader {...validProps} />);
 
     expect(asFragment()).toMatchSnapshot();
   });

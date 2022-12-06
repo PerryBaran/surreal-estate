@@ -8,7 +8,7 @@ describe("Logout", () => {
   };
 
   test("snapshot", () => {
-    const { asFragment } = render(<Logout onSuccess={validProps.onSuccess} />);
+    const { asFragment } = render(<Logout {...validProps} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
