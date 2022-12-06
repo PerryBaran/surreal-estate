@@ -3,32 +3,32 @@
 exports[`NavBar snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="navbar-container"
+    class="nav-bar"
   >
     <img
       alt="Surreal Estate"
-      class="logo"
+      class="nav-bar__logo"
       src="logo.png"
     />
     <nav
-      class="navbar"
+      class="nav-bar__nav"
     >
       <ul
-        class="links"
+        class="nav-bar__list"
       >
         <li
-          class="item"
+          class="nav-bar__item"
         >
           <a
             aria-current="page"
-            class="active"
+            class="nav-bar__link--active"
             href="/"
           >
             View Properties
           </a>
         </li>
         <li
-          class="item"
+          class="nav-bar__item"
         >
           <a
             href="/add-property"
@@ -39,7 +39,7 @@ exports[`NavBar snapshot 1`] = `
       </ul>
     </nav>
     <div
-      class="login"
+      class="nav-bar__login"
     >
       <button
         disabled=""

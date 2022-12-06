@@ -2,36 +2,34 @@
 
 exports[`renders learn react link 1`] = `
 <DocumentFragment>
-  <div
-    class="app"
-  >
+  <div>
     <div
-      class="navbar-container"
+      class="nav-bar"
     >
       <img
         alt="Surreal Estate"
-        class="logo"
+        class="nav-bar__logo"
         src="logo.png"
       />
       <nav
-        class="navbar"
+        class="nav-bar__nav"
       >
         <ul
-          class="links"
+          class="nav-bar__list"
         >
           <li
-            class="item"
+            class="nav-bar__item"
           >
             <a
               aria-current="page"
-              class="active"
+              class="nav-bar__link--active"
               href="/"
             >
               View Properties
             </a>
           </li>
           <li
-            class="item"
+            class="nav-bar__item"
           >
             <a
               href="/add-property"
@@ -42,7 +40,7 @@ exports[`renders learn react link 1`] = `
         </ul>
       </nav>
       <div
-        class="login"
+        class="nav-bar__login"
       >
         <button
           disabled=""
@@ -92,9 +90,7 @@ exports[`renders learn react link 1`] = `
         </button>
       </div>
     </div>
-    <div
-      class="content"
-    >
+    <div>
       <div
         class="properties"
       >
@@ -102,48 +98,38 @@ exports[`renders learn react link 1`] = `
           class="side-bar"
         >
           <h2
-            class="side-bar-heading"
+            class="side-bar__heading"
           >
             Filter By City
           </h2>
-          <ul
-            class="side-bar-list"
-          >
-            <li
-              class="side-bar-item"
-            >
+          <ul>
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"city\\":\\"Manchester\\"}"
               >
                 Manchester
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"city\\":\\"Leeds\\"}"
               >
                 Leeds
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"city\\":\\"Sheffield\\"}"
               >
                 Sheffield
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"city\\":\\"Liverpool\\"}"
               >
                 Liverpool
@@ -151,78 +137,62 @@ exports[`renders learn react link 1`] = `
             </li>
           </ul>
           <h2
-            class="side-bar-heading"
+            class="side-bar__heading"
           >
             Filter By Type
           </h2>
-          <ul
-            class="side-bar-list"
-          >
-            <li
-              class="side-bar-item"
-            >
+          <ul>
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"type\\":\\"Flat\\"}"
               >
                 Flat
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"type\\":\\"Detached\\"}"
               >
                 Detached
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"type\\":\\"Semi-Detached\\"}"
               >
                 Semi-Detached
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"type\\":\\"Terraced\\"}"
               >
                 Terraced
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"type\\":\\"End Of Terrace\\"}"
               >
                 End Of Terrace
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"type\\":\\"Cottage\\"}"
               >
                 Cottage
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?query={\\"type\\":\\"Bungalow\\"}"
               >
                 Bungalow
@@ -230,28 +200,22 @@ exports[`renders learn react link 1`] = `
             </li>
           </ul>
           <h2
-            class="side-bar-heading"
+            class="side-bar__heading"
           >
             Sort By Price
           </h2>
-          <ul
-            class="side-bar-list"
-          >
-            <li
-              class="side-bar-item"
-            >
+          <ul>
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?sort={\\"price\\":-1}"
               >
                 Ascending
               </a>
             </li>
-            <li
-              class="side-bar-item"
-            >
+            <li>
               <a
-                class="side-bar-link null"
+                class="side-bar__link null"
                 href="/?sort={\\"price\\":1}"
               >
                 Descending
@@ -259,47 +223,44 @@ exports[`renders learn react link 1`] = `
             </li>
           </ul>
           <h2
-            class="side-bar-heading"
+            class="side-bar__heading"
           >
             Search by Title
           </h2>
-          <form
-            class="side-bar-search-form"
+          <div
+            class="side-bar__search"
           >
-            <div
-              class="side-bar-search"
+            <input
+              class="side-bar__search__input"
+              id="query"
+            />
+            <button
+              class="side-bar__search__submit"
+              type="submit"
             >
-              <label
-                for="query"
-              >
-                <input
-                  class="side-bar-search-input"
-                  id="query"
-                />
-              </label>
-              <button
-                class="side-bar-search-submit"
-                type="submit"
-              >
-                <img
-                  alt="search"
-                  src="search.png"
-                />
-              </button>
-            </div>
-          </form>
+              <img
+                alt="search"
+                src="search.png"
+              />
+            </button>
+          </div>
           <button
-            class="side-bar-button"
+            class="side-bar__reset"
             type="button"
           >
             Reset
           </button>
         </div>
         <div
-          class="properties-main"
+          class="properties__main"
         >
+          <div>
+            <div
+              class="loader"
+            />
+          </div>
           <div
-            class="properties-array"
+            class="properties__main__cards"
           />
         </div>
       </div>

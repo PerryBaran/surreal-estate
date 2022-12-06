@@ -7,17 +7,20 @@ exports[`AddProperty snapshot 1`] = `
   >
     <form
       aria-label="form"
-      class="add-property-form"
+      class="add-property__form"
     >
+      <div
+        class="loader"
+      />
       <label
-        class="add-property-label"
+        class="add-property__label"
         for="title"
       >
         <span>
           Title
         </span>
         <input
-          class="add-property-input"
+          class="add-property__input"
           id="title"
           name="title"
           placeholder="2 bed flat"
@@ -26,14 +29,14 @@ exports[`AddProperty snapshot 1`] = `
         />
       </label>
       <label
-        class="add-property-label"
+        class="add-property__label"
         for="type"
       >
         <span>
           Type
         </span>
         <select
-          class="add-property-select"
+          class="add-property__select"
           id="type"
           name="type"
         >
@@ -50,14 +53,14 @@ exports[`AddProperty snapshot 1`] = `
         </select>
       </label>
       <label
-        class="add-property-label"
+        class="add-property__label"
         for="bedrooms"
       >
         <span>
           Bedrooms
         </span>
         <input
-          class="add-property-input"
+          class="add-property__input"
           id="bedrooms"
           min="0"
           name="bedrooms"
@@ -66,14 +69,14 @@ exports[`AddProperty snapshot 1`] = `
         />
       </label>
       <label
-        class="add-property-label"
+        class="add-property__label"
         for="bathrooms"
       >
         <span>
           Bathrooms
         </span>
         <input
-          class="add-property-input"
+          class="add-property__input"
           id="bathrooms"
           min="0"
           name="bathrooms"
@@ -82,14 +85,14 @@ exports[`AddProperty snapshot 1`] = `
         />
       </label>
       <label
-        class="add-property-label"
+        class="add-property__label"
         for="price"
       >
         <span>
           Price
         </span>
         <div
-          class="add-property-price"
+          class="add-property__price"
         >
           <span>
             £
@@ -106,14 +109,14 @@ exports[`AddProperty snapshot 1`] = `
         </div>
       </label>
       <label
-        class="add-property-label"
+        class="add-property__label"
         for="city"
       >
         <span>
           City
         </span>
         <select
-          class="add-property-select"
+          class="add-property__select"
           id="city"
           name="city"
         >
@@ -130,14 +133,14 @@ exports[`AddProperty snapshot 1`] = `
         </select>
       </label>
       <label
-        class="add-property-label"
+        class="add-property__label"
         for="email"
       >
         <span>
           Email
         </span>
         <input
-          class="add-property-input"
+          class="add-property__input"
           id="email"
           name="email"
           placeholder="fake.email@example.com"
@@ -147,7 +150,7 @@ exports[`AddProperty snapshot 1`] = `
         />
       </label>
       <button
-        class="add-property-button"
+        class="add-property__submit"
         type="submit"
       >
         Add

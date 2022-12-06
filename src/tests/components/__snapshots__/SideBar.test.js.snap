@@ -6,28 +6,22 @@ exports[`SideBar falsey userId snapshot 1`] = `
     class="side-bar"
   >
     <h2
-      class="side-bar-heading"
+      class="side-bar__heading"
     >
       Filter By City
     </h2>
-    <ul
-      class="side-bar-list"
-    >
-      <li
-        class="side-bar-item"
-      >
+    <ul>
+      <li>
         <a
-          class="side-bar-link null"
+          class="side-bar__link null"
           href="/?query={\\"city\\":\\"Leeds\\"}"
         >
           Leeds
         </a>
       </li>
-      <li
-        class="side-bar-item"
-      >
+      <li>
         <a
-          class="side-bar-link null"
+          class="side-bar__link null"
           href="/?query={\\"city\\":\\"Manchester\\"}"
         >
           Manchester
@@ -35,28 +29,22 @@ exports[`SideBar falsey userId snapshot 1`] = `
       </li>
     </ul>
     <h2
-      class="side-bar-heading"
+      class="side-bar__heading"
     >
       Filter By Type
     </h2>
-    <ul
-      class="side-bar-list"
-    >
-      <li
-        class="side-bar-item"
-      >
+    <ul>
+      <li>
         <a
-          class="side-bar-link null"
+          class="side-bar__link null"
           href="/?query={\\"type\\":\\"Flat\\"}"
         >
           Flat
         </a>
       </li>
-      <li
-        class="side-bar-item"
-      >
+      <li>
         <a
-          class="side-bar-link null"
+          class="side-bar__link null"
           href="/?query={\\"type\\":\\"Detached\\"}"
         >
           Detached
@@ -64,28 +52,22 @@ exports[`SideBar falsey userId snapshot 1`] = `
       </li>
     </ul>
     <h2
-      class="side-bar-heading"
+      class="side-bar__heading"
     >
       Sort By Price
     </h2>
-    <ul
-      class="side-bar-list"
-    >
-      <li
-        class="side-bar-item"
-      >
+    <ul>
+      <li>
         <a
-          class="side-bar-link null"
+          class="side-bar__link null"
           href="/?sort={\\"price\\":-1}"
         >
           Ascending
         </a>
       </li>
-      <li
-        class="side-bar-item"
-      >
+      <li>
         <a
-          class="side-bar-link null"
+          class="side-bar__link null"
           href="/?sort={\\"price\\":1}"
         >
           Descending
@@ -93,37 +75,29 @@ exports[`SideBar falsey userId snapshot 1`] = `
       </li>
     </ul>
     <h2
-      class="side-bar-heading"
+      class="side-bar__heading"
     >
       Search by Title
     </h2>
-    <form
-      class="side-bar-search-form"
+    <div
+      class="side-bar__search"
     >
-      <div
-        class="side-bar-search"
+      <input
+        class="side-bar__search__input"
+        id="query"
+      />
+      <button
+        class="side-bar__search__submit"
+        type="submit"
       >
-        <label
-          for="query"
-        >
-          <input
-            class="side-bar-search-input"
-            id="query"
-          />
-        </label>
-        <button
-          class="side-bar-search-submit"
-          type="submit"
-        >
-          <img
-            alt="search"
-            src="search.png"
-          />
-        </button>
-      </div>
-    </form>
+        <img
+          alt="search"
+          src="search.png"
+        />
+      </button>
+    </div>
     <button
-      class="side-bar-button"
+      class="side-bar__reset"
       type="button"
     >
       Reset

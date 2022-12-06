@@ -7,28 +7,24 @@ exports[`PropertyCard falsy userId snapshot 1`] = `
   >
     <img
       alt="property"
-      class="property-card-image"
+      class="property-card__image"
       src="card.png"
     />
-    <h2
-      class="property-card-title"
-    >
+    <h2>
       2 bed flat
     </h2>
-    <p
-      class="property-card-info"
-    >
+    <p>
       flat - Leeds
     </p>
     <div
-      class="property-card-rooms"
+      class="property-card__rooms"
     >
       <div
-        class="property-card-room"
+        class="property-card__rooms__room"
       >
         <img
           alt="bathrooms"
-          class="property-card-icon"
+          class="property-card__icon"
           src="bath.png"
         />
         <p>
@@ -36,11 +32,11 @@ exports[`PropertyCard falsy userId snapshot 1`] = `
         </p>
       </div>
       <div
-        class="property-card-room"
+        class="property-card__rooms__room"
       >
         <img
           alt="bedrooms"
-          class="property-card-icon"
+          class="property-card__icon"
           src="bed.png"
         />
         <p>
@@ -49,17 +45,17 @@ exports[`PropertyCard falsy userId snapshot 1`] = `
       </div>
     </div>
     <p
-      class="property-card-price"
+      class="property-card__price"
     >
       £ 5000.00
     </p>
     <a
-      class="property-card-email"
+      class="property-card__email"
       href="mailto:not.real@email.com"
     >
       <img
         alt="email"
-        class="property-card-icon"
+        class="property-card__icon"
         src="email.png"
       />
       <p>
@@ -77,28 +73,24 @@ exports[`PropertyCard truthy userId and favouriteId snapshot 1`] = `
   >
     <img
       alt="property"
-      class="property-card-image"
+      class="property-card__image"
       src="card.png"
     />
-    <h2
-      class="property-card-title"
-    >
+    <h2>
       2 bed flat
     </h2>
-    <p
-      class="property-card-info"
-    >
+    <p>
       flat - Leeds
     </p>
     <div
-      class="property-card-rooms"
+      class="property-card__rooms"
     >
       <div
-        class="property-card-room"
+        class="property-card__rooms__room"
       >
         <img
           alt="bathrooms"
-          class="property-card-icon"
+          class="property-card__icon"
           src="bath.png"
         />
         <p>
@@ -106,11 +98,11 @@ exports[`PropertyCard truthy userId and favouriteId snapshot 1`] = `
         </p>
       </div>
       <div
-        class="property-card-room"
+        class="property-card__rooms__room"
       >
         <img
           alt="bedrooms"
-          class="property-card-icon"
+          class="property-card__icon"
           src="bed.png"
         />
         <p>
@@ -119,17 +111,17 @@ exports[`PropertyCard truthy userId and favouriteId snapshot 1`] = `
       </div>
     </div>
     <p
-      class="property-card-price"
+      class="property-card__price"
     >
       £ 5000.00
     </p>
     <a
-      class="property-card-email"
+      class="property-card__email"
       href="mailto:not.real@email.com"
     >
       <img
         alt="email"
-        class="property-card-icon"
+        class="property-card__icon"
         src="email.png"
       />
       <p>
@@ -155,28 +147,24 @@ exports[`PropertyCard truthy userId snapshot 1`] = `
   >
     <img
       alt="property"
-      class="property-card-image"
+      class="property-card__image"
       src="card.png"
     />
-    <h2
-      class="property-card-title"
-    >
+    <h2>
       2 bed flat
     </h2>
-    <p
-      class="property-card-info"
-    >
+    <p>
       flat - Leeds
     </p>
     <div
-      class="property-card-rooms"
+      class="property-card__rooms"
     >
       <div
-        class="property-card-room"
+        class="property-card__rooms__room"
       >
         <img
           alt="bathrooms"
-          class="property-card-icon"
+          class="property-card__icon"
           src="bath.png"
         />
         <p>
@@ -184,11 +172,11 @@ exports[`PropertyCard truthy userId snapshot 1`] = `
         </p>
       </div>
       <div
-        class="property-card-room"
+        class="property-card__rooms__room"
       >
         <img
           alt="bedrooms"
-          class="property-card-icon"
+          class="property-card__icon"
           src="bed.png"
         />
         <p>
@@ -197,17 +185,17 @@ exports[`PropertyCard truthy userId snapshot 1`] = `
       </div>
     </div>
     <p
-      class="property-card-price"
+      class="property-card__price"
     >
       £ 5000.00
     </p>
     <a
-      class="property-card-email"
+      class="property-card__email"
       href="mailto:not.real@email.com"
     >
       <img
         alt="email"
-        class="property-card-icon"
+        class="property-card__icon"
         src="email.png"
       />
       <p>
