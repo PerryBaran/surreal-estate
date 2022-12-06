@@ -3,23 +3,41 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import NavBar from "../../components/NavBar";
 
-const RenderWithRouter = () => {
+const RenderWithRouter = (props) => {
   return (
     <Router>
-      <NavBar />
+      <NavBar {...props} />
     </Router>
   );
 };
 
 describe("NavBar", () => {
+  const validProps = {
+    handleLogin: jest.fn(),
+    handleLogout: jest.fn(),
+    userId: "",
+  };
+
   test("snapshot", () => {
-    const { asFragment } = render(<RenderWithRouter />);
+    const { asFragment } = render(
+      <RenderWithRouter
+        handleLogin={validProps.handleLogin}
+        handleLogout={validProps.handleLogout}
+        userId={validProps.userId}
+      />
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   test("content", () => {
-    render(<RenderWithRouter />);
+    render(
+      <RenderWithRouter
+        handleLogin={validProps.handleLogin}
+        handleLogout={validProps.handleLogout}
+        userId={validProps.userId}
+      />
+    );
     const links = screen.getAllByRole("link");
 
     expect(screen.getByAltText(/surreal estate/i)).toHaveAttribute(

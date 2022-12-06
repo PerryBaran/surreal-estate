@@ -17,7 +17,7 @@ describe("SideBar", () => {
       cities: ["Leeds", "Manchester"],
       types: ["Flat", "Detached"],
       userId: "",
-      filterByFavourites: jest.fn(),
+      filterByFavourites: false,
       handleFilterFavourites: jest.fn(),
     };
 

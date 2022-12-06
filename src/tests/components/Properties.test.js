@@ -62,7 +62,7 @@ describe("Properties", () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
-    test("renders properties", async () => {
+    test("renders properties", () => {
       render(
         <RenderWithRouter
           options={validProps.options}
