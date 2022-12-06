@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SaveProperty falsey favouriteId snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="save-property"
+    type="button"
+  >
+    Save
+  </button>
+</DocumentFragment>
+`;
+
+exports[`SaveProperty truthy favouriteId snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="remove-property"
+    type="button"
+  >
+    <span>
+      Saved
+    </span>
+  </button>
+</DocumentFragment>
+`;
