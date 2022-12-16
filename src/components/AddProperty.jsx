@@ -28,7 +28,7 @@ const AddProperty = ({ cities, types }) => {
 
   const handleAddProperty = async (e) => {
     e.preventDefault();
-    setAlert("");
+    setAlert(initialState.alert);
     if (!formFields.title) {
       setAlert({
         message: "Please provide a valid title.",
